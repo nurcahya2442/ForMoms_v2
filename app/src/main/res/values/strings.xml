@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">ForMoms_v2</string>
+    <string name="nama_profile">Hai! Herlangga</string>
+    <string name="tv_kabar">Apa kabarmu hari ini?</string>
+    <string name="tv_recentMemories">Recent Memories</string>
+    <string name="tv_care_tips">Care Tips</string>
+    <string name="tv_lihat_detail">Lihat Detail</string>
+    <string name="tv_memories">Memories</string>
+    <string name="tv_my_favorite">My Favorite</string>
+    <string name="tv_time">Dibuat 5 hari yang lalu</string>
+    <string name="tv_time2">Dibuat 2 hari yang lalu</string>
+    <string name="tvHoliday">Holiday</string>
 </resources>
