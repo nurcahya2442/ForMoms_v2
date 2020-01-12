@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:overScrollMode="never">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 
     <RelativeLayout
         android:id="@+id/relative1"
@@ -40,7 +46,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nama_profile"
-            android:fontFamily="@font/Nunito-Light"
             android:textColor="#FFFFFFFF"
             android:textSize="@dimen/_20ssp"
             android:layout_marginStart="@dimen/_20sdp"
@@ -72,7 +77,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tv_recentMemories"
-            android:fontFamily="@font/Nunito-SemiBold"
             android:textSize="@dimen/_13ssp"
             android:layout_marginStart="@dimen/_16sdp"
             android:textColor="@android:color/black"
@@ -303,7 +307,10 @@
 
     </RelativeLayout>
 
-
-
-
 </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/_170sdp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewRecentView"
+        android:layout_width="@dimen/_122sdp"
+        android:layout_height="@dimen/_158sdp"
+        android:elevation="@dimen/_8sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_10sdp" >
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/ivListFood"
+            android:layout_width="@dimen/_118sdp"
+            android:layout_height="@dimen/_93sdp"
+            android:src="@drawable/food"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"/>
+
+        <TextView
+            android:id="@+id/tvJudulListCare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Baby Food Recommendation"
+            android:textSize="@dimen/_12ssp"
+            android:layout_below="@id/ivListFood"
+            android:textColor="@android:color/black"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:gravity="center_horizontal"/>
+
+
+            <ImageView
+                android:id="@+id/ivPeopleImage"
+                android:layout_width="@dimen/_14sdp"
+                android:layout_height="@dimen/_14sdp"
+                android:src="@drawable/people"
+                android:layout_below="@id/tvJudulListCare"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_5sdp"/>
+
+            <TextView
+                android:id="@+id/tvPopleName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Angelica Witson"
+                android:layout_below="@id/tvJudulListCare"
+                android:textSize="@dimen/_8ssp"
+                android:layout_toRightOf="@id/ivPeopleImage"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:textColor="#9F9F9F"/>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
