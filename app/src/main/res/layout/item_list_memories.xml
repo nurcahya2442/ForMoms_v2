@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:rowCount="2"
+        android:columnCount="2">
+
+        <ImageView
+            android:id="@+id/ivBayi1"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:src="@drawable/bayi_1"/>
+
+        <ImageView
+            android:id="@+id/ivBayi2"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:src="@drawable/bayi_2"
+            android:layout_marginStart="@dimen/_5sdp"/>
+
+        <ImageView
+            android:id="@+id/ivBayi3"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:src="@drawable/bayi_3"
+            android:layout_marginTop="@dimen/_5sdp"/>
+
+        <ImageView
+            android:id="@+id/ivBayi4"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:src="@drawable/bayi_4"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_5sdp"/>
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/tvMyFav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_my_favorite"
+        android:textSize="@dimen/_17ssp"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/gridLayout"
+        android:layout_marginTop="@dimen/_5sdp"/>
+
+    <TextView
+        android:id="@+id/tvTimeFav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_time2"
+        android:layout_below="@id/tvMyFav"
+        android:textSize="@dimen/_13ssp"
+        android:textColor="#888888"/>
+
+</RelativeLayout>
