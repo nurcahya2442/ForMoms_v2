@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.formoms_v2.MainActivity;
 import com.example.formoms_v2.R;
+import com.example.formoms_v2.ui.HomeActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -52,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
 
                 if (firebaseAuth.getCurrentUser() != null) {
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                 }
             }
         };
@@ -86,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (!task.isSuccessful()) {
                         Toast.makeText(LoginActivity.this, "Login Problem", Toast.LENGTH_SHORT).show();
                     }else{
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                     }
                 }
             });
