@@ -1,6 +1,8 @@
 package com.example.formoms_v2.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.formoms_v2.R;
 import com.example.formoms_v2.adapter.CareAdapter;
 import com.example.formoms_v2.adapter.pojo.Care;
+import com.example.formoms_v2.adapter.pojo.RecyclerItemClickListener;
 
 import java.util.ArrayList;
 
@@ -46,6 +49,8 @@ public class CareActivity extends AppCompatActivity {
         adapterCare = new CareAdapter(this,dataListTips);
         recyclerViewCareTips.setAdapter(adapterCare);
         recyclerViewCareTips.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
+
+        eventListener();
     }
 
     private ArrayList<Care> dataTips(){
@@ -61,5 +66,14 @@ public class CareActivity extends AppCompatActivity {
             listTips.add(care);
         }
         return listTips;
+    }
+
+    private void eventListener() {
+        recyclerViewCareTips.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                startActivity(new Intent(CareActivity.this, DetailCareActivity.class));
+            }
+        }));
     }
 }

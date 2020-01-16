@@ -1,49 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
 
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:overScrollMode="never">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_13sdp">
-
-
-        <RelativeLayout
-            android:id="@+id/ivListFood"
+        android:layout_height="match_parent"
+        android:background="#0ABDE3">
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="@dimen/_1sdp"
-            android:scaleType="centerCrop"
-            android:background="@drawable/food" >
+            android:layout_height="@dimen/_200sdp"
+            android:src="@drawable/food"
+            android:scaleType="centerCrop"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:src="@drawable/dark_30"/>
 
-            <androidx.appcompat.widget.AppCompatTextView
+        <RelativeLayout
+            android:id="@+id/relative1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_180sdp"
+            android:background="@android:color/transparent">
+
+            <ImageView
+                android:id="@+id/ivMenuBars"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/fa_bars"
+                android:paddingTop="@dimen/_6sdp"
+                android:paddingLeft="@dimen/_6sdp"
+                android:paddingRight="@dimen/_6sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@drawable/bg_shape_menu"/>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="Judul Postingan"
-                android:textColor="#FFFF"
-                android:textSize="20dp"
-                />
+                android:text="Baby Food Recommendation"
+                android:textStyle="bold"
+                android:textSize="@dimen/_25ssp"
+                android:textColor="#fff"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"/>
+
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/relative2"
+            android:layout_below="@+id/relative1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="120dp"
-            android:background="@drawable/rectangle2">
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_marginTop="20dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Isi Postingan"/>
+            android:background="@drawable/bg_shape_corner">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_30sdp">
+
+                <ImageView
+                    android:id="@+id/ivPeopleImage"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:src="@drawable/people"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_25sdp"/>
+
+                <TextView
+                    android:id="@+id/tvPopleName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Angelica Witson"
+                    android:textSize="@dimen/_13ssp"
+                    android:layout_toRightOf="@id/ivPeopleImage"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:textColor="#9F9F9F"/>
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kenapa bayi harus diberikan makanan lain di usia 6 bulan?"
+                    android:textSize="@dimen/_15ssp"
+                    android:textColor="#000"
+                    android:layout_below="@id/ivPeopleImage"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:layout_marginStart="@dimen/_25sdp"
+                    android:layout_marginEnd="@dimen/_25sdp"/>
+
+                <TextView
+                    android:id="@+id/tvContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tvContent"
+                    android:textSize="@dimen/_13ssp"
+                    android:layout_below="@+id/tvTitle"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginStart="@dimen/_25sdp"
+                    android:layout_marginEnd="@dimen/_25sdp"
+                    android:textColor="#9F9F9F"/>
+
+            </RelativeLayout>
 
         </RelativeLayout>
+
     </RelativeLayout>
-</RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>

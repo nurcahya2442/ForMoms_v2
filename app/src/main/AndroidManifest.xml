@@ -12,8 +12,8 @@
 
         <activity android:name=".MainActivity"></activity>
         <activity
-            android:name=".ui.HomeActivity"
-            android:label="Home"
+            android:name=".auth.LoginActivity"
+            android:label="Login"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -21,6 +21,18 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".auth.RegisterActivity"
+            android:label="Register"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ui.HomeActivity"
+            android:label="Home"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".ui.CareActivity"
@@ -37,6 +49,12 @@
         <activity
             android:name=".ui.SidebarActivity"
             android:label="SideBar"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ui.DetailCareActivity"
+            android:label="Detail Care"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>

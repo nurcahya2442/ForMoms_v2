@@ -17,8 +17,10 @@ import android.widget.TextView;
 import com.example.formoms_v2.R;
 import com.example.formoms_v2.adapter.CareTipsAdapter;
 import com.example.formoms_v2.adapter.RecentAdapter;
+import com.example.formoms_v2.adapter.pojo.Care;
 import com.example.formoms_v2.adapter.pojo.CareTips;
 import com.example.formoms_v2.adapter.pojo.RecentMemories;
+import com.example.formoms_v2.adapter.pojo.RecyclerItemClickListener;
 
 import java.util.ArrayList;
 
@@ -150,36 +152,30 @@ public class HomeActivity extends AppCompatActivity {
         tvLihatDetailCare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, CareActivity.class));
+                startActivity(new Intent(HomeActivity.this,CareActivity.class));
             }
         });
+
         tvLihatDetailMemories.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, MemoriesActivity.class));
+                startActivity(new Intent(HomeActivity.this,MemoriesActivity.class));
             }
         });
-        tvLihatDetailCare.setOnTouchListener(new View.OnTouchListener(){
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == MotionEvent.ACTION_DOWN){
-                    tvLihatDetailCare.setTextColor(Color.YELLOW);
-                }
-                if(event.getAction() == MotionEvent.ACTION_UP){
-                    System.out.println("UP");
-                }
-                if(event.getAction() == MotionEvent.ACTION_CANCEL){
-                    System.out.println("cancel");
-                }
-                return false;
-            }
-        });
+
         ivMenuBars.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HomeActivity.this, SidebarActivity.class));
             }
         });
+
+        recyclerViewCareTips.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                startActivity(new Intent(HomeActivity.this, DetailCareActivity.class));
+            }
+        }));
     }
 
 }
