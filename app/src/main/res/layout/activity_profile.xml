@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ProfileActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/relative1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"
+        android:background="@drawable/bg_shape_top_profile">
+
+
+
+
+        <ImageView
+            android:id="@+id/ivMenuBars"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:src="@drawable/fa_bars"
+            android:paddingTop="@dimen/_6sdp"
+            android:paddingLeft="@dimen/_6sdp"
+            android:paddingRight="@dimen/_6sdp"
+            android:paddingBottom="@dimen/_4sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/bg_shape_menu"/>
+
+
+        <TextView
+            android:id="@+id/tvProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            android:textColor="#fff"
+            android:textSize="@dimen/_25ssp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_15sdp"/>
+
+    </RelativeLayout>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivImageProfile"
+        android:layout_width="@dimen/_175sdp"
+        android:layout_height="@dimen/_175sdp"
+        android:src="@drawable/bayi_3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_100sdp"
+        app:civ_border_width="@dimen/_7sdp"
+        app:civ_border_color="@android:color/white"
+        />
+
+    <ImageView
+        android:id="@+id/ivCamera"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:src="@drawable/icon_material_photo_camera"
+        android:layout_below="@id/relative1"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="@dimen/_100sdp"
+        android:layout_marginTop="@dimen/_40sdp" />
+
+    <TextView
+        android:id="@+id/tvNameProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Herlangga Sinaga"
+        android:hint="Nama Bayi"
+        android:layout_below="@id/ivImageProfile"
+
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/_18ssp"
+        android:textColor="#0ABDE3"
+        android:textColorHint="#0ABDE3"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:text="17 Desember 2002"
+        android:layout_below="@id/tvNameProfile"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/_14ssp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:gravity="center"
+        android:textColor="#0ABDE3"
+        android:hint="Tanggal Lahir"/>
+
+
+</RelativeLayout>
