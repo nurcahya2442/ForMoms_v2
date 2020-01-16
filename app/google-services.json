@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "367487196270",
+    "firebase_url": "https://formomsv2-96198.firebaseio.com",
+    "project_id": "formomsv2-96198",
+    "storage_bucket": "formomsv2-96198.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:367487196270:android:5a0a967065beccd1329a7f",
+        "android_client_info": {
+          "package_name": "com.example.formoms_v2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "367487196270-fvn1bc032oavbr871a3nf6o7cvta4dvo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.formoms_v2",
+            "certificate_hash": "dabc9f0866578a1b77406bfa4694cc5b0b20b739"
+          }
+        },
+        {
+          "client_id": "367487196270-o7ac4hf1b8vmuch2s2q6hdebq6krp99n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG57xgjN9_el_k1Ab2HguaVnccjd7eTM8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "367487196270-o7ac4hf1b8vmuch2s2q6hdebq6krp99n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
