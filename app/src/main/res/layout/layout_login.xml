@@ -84,6 +84,22 @@
                     android:textSize="15dp"
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="20dp"
+                android:id="@+id/abtn_regist"
+                android:layout_below="@id/pw"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+                <Button
+                    android:id="@+id/btn_regist"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Login"
+                    android:textColor="@android:color/white"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
         </RelativeLayout>
 
 
