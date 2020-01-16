@@ -79,7 +79,7 @@
                     android:id="@+id/btn_regis"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Login"
+                    android:text="Register"
                     android:textColor="@android:color/white"
                     android:textSize="15dp"
                     android:textStyle="bold" />
