@@ -13,14 +13,21 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.formoms_v2.R;
+import com.example.formoms_v2.adapter.CareAdapter;
 import com.example.formoms_v2.adapter.CareTipsAdapter;
 import com.example.formoms_v2.adapter.RecentAdapter;
 import com.example.formoms_v2.adapter.pojo.Care;
 import com.example.formoms_v2.adapter.pojo.CareTips;
 import com.example.formoms_v2.adapter.pojo.RecentMemories;
 import com.example.formoms_v2.adapter.pojo.RecyclerItemClickListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -38,6 +45,8 @@ public class HomeActivity extends AppCompatActivity {
     private TextView tvLihatDetailMemories;
     private ImageView ivMenuBars;
 
+    DatabaseReference ref;
+    public FirebaseDatabase database;
 
     //Data Recycler View Dummy Recent View
 
@@ -89,7 +98,6 @@ public class HomeActivity extends AppCompatActivity {
 
     private String[] name = new String[] {"Angelica Witson", "Pretty Jonson","Angelica Witson", "Pretty Jonson","Angelica Witson", "Pretty Jonson","Angelica Witson", "Pretty Jonson","Angelica Witson", "Pretty Jonson"};
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,12 +118,36 @@ public class HomeActivity extends AppCompatActivity {
         //Manggil Recycler View Care Tips
 
         recyclerViewCareTips = (RecyclerView)findViewById(R.id.recyclerCareTips);
-        dataListTips = dataTips();
-        adapterCareTips = new CareTipsAdapter(this,dataListTips);
-        recyclerViewCareTips.setAdapter(adapterCareTips);
-        recyclerViewCareTips.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+        dataListTips = new ArrayList<>();
 
         eventListener();
+
+        database = FirebaseDatabase.getInstance();
+        ref = database.getReference("Care");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                dataListTips.clear();
+                for (DataSnapshot value : dataSnapshot.getChildren()) {
+                    CareTips care = value.getValue(CareTips.class);
+                    dataListTips.add(care);
+                }
+                adapterCareTips = new CareTipsAdapter(dataListTips);
+                recyclerViewCareTips.setAdapter(adapterCareTips);
+                recyclerViewCareTips.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+                adapterCareTips.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
     }
 
     //Data RecentView
@@ -129,23 +161,6 @@ public class HomeActivity extends AppCompatActivity {
             list.add(recentMemories);
         }
         return list;
-    }
-
-    //Data Care Tips
-
-    private ArrayList<CareTips> dataTips(){
-
-        ArrayList<CareTips> listTips = new ArrayList<>();
-
-        for(int i = 0; i< 10; i++){
-            CareTips careTips = new CareTips();
-            careTips.setPicTips(foodPic[i]);
-            careTips.setTitleTips(judulTips[i]);
-            careTips.setPhotoPeople(peoplePhoto[i]);
-            careTips.setNamePeople(name[i]);
-            listTips.add(careTips);
-        }
-        return listTips;
     }
 
     private void eventListener() {

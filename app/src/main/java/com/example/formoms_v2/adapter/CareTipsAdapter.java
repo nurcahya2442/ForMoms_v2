@@ -12,16 +12,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.formoms_v2.R;
+import com.example.formoms_v2.adapter.pojo.Care;
 import com.example.formoms_v2.adapter.pojo.CareTips;
 
 import java.util.ArrayList;
 
 public class CareTipsAdapter extends RecyclerView.Adapter<CareTipsAdapter.ViewHolder> {
-    public LayoutInflater inflater;
     private ArrayList<CareTips> dataList;
 
-    public CareTipsAdapter(Context ctx, ArrayList<CareTips> dataList){
-        inflater = LayoutInflater.from(ctx);
+    public CareTipsAdapter(ArrayList<CareTips> dataList){
         this.dataList = dataList;
     }
 
@@ -35,9 +34,9 @@ public class CareTipsAdapter extends RecyclerView.Adapter<CareTipsAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull CareTipsAdapter.ViewHolder holder, int position) {
-    holder.ivTips.setImageResource(dataList.get(position).getPicTips());
+//    holder.ivTips.setImageResource(dataList.get(position).getPicTips());
     holder.tvJudulTips.setText(dataList.get(position).getTitleTips());
-    holder.ivPeople.setImageResource(dataList.get(position).getPhotoPeople());
+//    holder.ivPeople.setImageResource(dataList.get(position).getPhotoPeople());
     holder.tvName.setText(dataList.get(position).getNamePeople());
 
     }
