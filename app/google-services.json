@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "367487196270-igct77nlafiigl8ggccf2m5fmpci0mqt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.formoms_v2",
+            "certificate_hash": "2bf98e30b709a94e2db2cd9df9cf5fd2fc0e2b54"
+          }
+        },
+        {
           "client_id": "367487196270-304pqrkbqka0f32b4ol39utvlisi85ss.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
