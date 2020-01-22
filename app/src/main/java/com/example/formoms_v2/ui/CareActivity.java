@@ -3,6 +3,7 @@ package com.example.formoms_v2.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,13 +14,22 @@ import com.example.formoms_v2.R;
 import com.example.formoms_v2.adapter.CareAdapter;
 import com.example.formoms_v2.adapter.pojo.Care;
 import com.example.formoms_v2.adapter.pojo.RecyclerItemClickListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class CareActivity extends AppCompatActivity {
+
     private ArrayList<Care> dataListTips;
     private RecyclerView recyclerViewCareTips;
     private CareAdapter adapterCare;
+
+    DatabaseReference ref;
+    public FirebaseDatabase database;
 
     //Data Recycler View Dummy Care Tips
     private int[] foodPic = new int[]{
@@ -41,31 +51,41 @@ public class CareActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_care);
-
         //Manggil Recycler View Care
 
         recyclerViewCareTips = (RecyclerView) findViewById(R.id.rvCare);
-        dataListTips = dataTips();
-        adapterCare = new CareAdapter(this,dataListTips);
-        recyclerViewCareTips.setAdapter(adapterCare);
-        recyclerViewCareTips.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
+        dataListTips = new ArrayList<>();
 
         eventListener();
+
+
+        // Get a reference to our posts
+        database = FirebaseDatabase.getInstance();
+        ref = database.getReference("Care");
     }
 
-    private ArrayList<Care> dataTips(){
+    @Override
+    protected void onStart() {
+        super.onStart();
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                dataListTips.clear();
+                for (DataSnapshot value : dataSnapshot.getChildren()) {
+                    Care care = value.getValue(Care.class);
+                    dataListTips.add(care);
+                }
+                adapterCare = new CareAdapter(dataListTips);
+                recyclerViewCareTips.setAdapter(adapterCare);
+                recyclerViewCareTips.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
+                adapterCare.notifyDataSetChanged();
+            }
 
-        ArrayList<Care> listTips = new ArrayList<>();
-
-        for(int i = 0; i<2; i++){
-            Care care = new Care();
-            care.setPicTips(foodPic[i]);
-            care.setTitleTips(judulTips[i]);
-            care.setPhotoPeople(peoplePhoto[i]);
-            care.setNamePeople(name[i]);
-            listTips.add(care);
-        }
-        return listTips;
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
     }
 
     private void eventListener() {
