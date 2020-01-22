@@ -6,6 +6,15 @@ public class CareTips {
     private int photoPeople;
     private String namePeople;
 
+    public CareTips(int picTips, String titleTips, int photoPeople, String namePeople) {
+        this.picTips = picTips;
+        this.titleTips = titleTips;
+        this.photoPeople = photoPeople;
+        this.namePeople = namePeople;
+    }
+
+    public CareTips() {}
+
     public int getPicTips() {
         return picTips;
     }

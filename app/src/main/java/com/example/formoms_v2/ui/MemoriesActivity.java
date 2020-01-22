@@ -56,7 +56,7 @@ public class MemoriesActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView)findViewById(R.id.rvMemories);
         listMemories = addList();
-        adapter = new MemoriesAdapter(this,listMemories);
+        adapter = new MemoriesAdapter(listMemories);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
     }

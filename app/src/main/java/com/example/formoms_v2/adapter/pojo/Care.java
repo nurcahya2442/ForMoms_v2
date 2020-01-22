@@ -1,10 +1,29 @@
 package com.example.formoms_v2.adapter.pojo;
 
 public class Care {
+    private String idCare;
     private int picTips;
     private String titleTips;
     private int photoPeople;
     private String namePeople;
+
+    public String getIdCare() {
+        return idCare;
+    }
+
+    public Care(String idCare, int picTips, String titleTips, int photoPeople, String namePeople) {
+        this.idCare = idCare;
+        this.picTips = picTips;
+        this.titleTips = titleTips;
+        this.photoPeople = photoPeople;
+        this.namePeople = namePeople;
+    }
+
+    public Care() {}
+
+    public void setIdCare(String idCare) {
+        this.idCare = idCare;
+    }
 
     public int getPicTips() {
         return picTips;

@@ -16,11 +16,9 @@ import com.example.formoms_v2.adapter.pojo.Memories;
 import java.util.ArrayList;
 
 public class MemoriesAdapter extends RecyclerView.Adapter<MemoriesAdapter.ViewHolder> {
-    public LayoutInflater inflater;
     private ArrayList<Memories> dataList;
 
-    public MemoriesAdapter(Context ctx, ArrayList<Memories> dataList){
-        inflater = LayoutInflater.from(ctx);
+    public MemoriesAdapter(ArrayList<Memories> dataList){
         this.dataList = dataList;
     }
 
