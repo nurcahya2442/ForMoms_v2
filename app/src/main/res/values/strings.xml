@@ -14,4 +14,13 @@
 Terlebih karena secara keseluruhan, kebutuhan gizi sang anak bertambah sehingga perlu makanan tambahan selain ASI. Khususnya beberapa zat gizi makro seperti protein dan lemak, dan zat gizi mikro seperti mineral.
 Sementara ASI, hanya dapat memenuhi kebutuhan energi sekitar 65-80 persen. Kandungan zat gizi ASI juga terbilang sangat sedikit untuk memenuhi kebutuhan harian bayi, jika harus dikonsumsi sendiri tanpa tambahan dari makanan lain.
 Namun jika memungkinkan, ASI sebaiknya masih diberikan selagi bayi diperkenalkan dengan makanan di 6 bulan pertamanya atau MPASI.</string>
+    <string name="top_profile">Profile</string>
+    <string name="tv_name_profile">Herlangga Sinaga</string>
+    <string name="tv_tanggal_lahir">17 Desember 2002</string>
+    <string name="tv_tempat_lahir">Bandung, Indonesia</string>
+    <string name="edit_profile">EDIT PROFILE</string>
+    <string name="tv_stat_bayi">Hidupkanlah hidup dengan kehidupan yang menghidupkan dalam hidup.</string>
+    <string name="tv_hobby1">Pemainan</string>
+    <string name="tv_hobby2">Musik</string>
+    <string name="tv_hobby3">Game</string>
 </resources>
