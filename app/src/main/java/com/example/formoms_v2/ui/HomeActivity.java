@@ -1,5 +1,6 @@
 package com.example.formoms_v2.ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -28,6 +30,7 @@ import com.example.formoms_v2.adapter.pojo.CareTips;
 import com.example.formoms_v2.adapter.pojo.RecentMemories;
 import com.example.formoms_v2.adapter.pojo.RecyclerItemClickListener;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,7 +39,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ArrayList<RecentMemories> listPhoto;
     private RecyclerView recyclerView;
@@ -51,7 +54,7 @@ public class HomeActivity extends AppCompatActivity {
     private ImageView ivMenuBars;
     private NavigationView navigationSidebar;
 
-
+    HomeActivity context;
 
     DatabaseReference ref;
     public FirebaseDatabase database;
@@ -111,11 +114,16 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        context = this;
+
         tvLihatDetailCare = (TextView) findViewById(R.id.tvLihatDetailCare);
         tvLihatDetailMemories = (TextView) findViewById(R.id.tvLihatDetailMemories);
         ivMenuBars = (ImageView) findViewById(R.id.ivMenuBars);
 
         navigationSidebar = (NavigationView)findViewById(R.id.navigationBar);
+        navigationSidebar.setNavigationItemSelectedListener(this);
+
+
         final DrawerLayout mDrawerLayout = findViewById(R.id.drawer_layout);
 
         ivMenuBars.setOnClickListener(new View.OnClickListener() {
@@ -211,4 +219,25 @@ public class HomeActivity extends AppCompatActivity {
         }));
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.menu_profile) {
+            // Handle the camera action
+            startActivity(new Intent(context, ProfileActivity.class));
+        } else if (id == R.id.menu_memories) {
+            startActivity(new Intent(context, MemoriesActivity.class));
+        } else if (id == R.id.menu_care) {
+            startActivity(new Intent(context, CareActivity.class));
+        } else if (id == R.id.menu_chcekup) {
+            Toast.makeText(context, "Fitur Belum Tersedia", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.menu_Logout) {
+            Toast.makeText(context, "Fitur Belum Tersedia", Toast.LENGTH_SHORT).show();
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 }

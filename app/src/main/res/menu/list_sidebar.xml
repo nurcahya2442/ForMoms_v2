@@ -2,15 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <item android:id="@+id/profile"
+    <item android:id="@+id/menu_profile"
         android:title="Profile" />
 
-    <item android:id="@+id/care"
+    <item android:id="@+id/menu_memories"
+        android:title="Memories" />
+
+    <item android:id="@+id/menu_care"
         android:title="Care"/>
 
-    <item android:id="@+id/memories"
-        android:title="Memories"/>
+    <item android:id="@+id/menu_chcekup"
+        android:title="Checkup">
+    </item>
 
-    <item android:id="@+id/Logout"
+    <item android:id="@+id/menu_Logout"
         android:title="Logout"/>
 </menu>
