@@ -6,20 +6,40 @@ public class Care {
     private String titleTips;
     private int photoPeople;
     private String namePeople;
+    private String content;
+    private String createAt;
 
-    public String getIdCare() {
-        return idCare;
-    }
-
-    public Care(String idCare, int picTips, String titleTips, int photoPeople, String namePeople) {
+    public Care(String idCare, int picTips, String titleTips, int photoPeople, String namePeople, String content, String createAt) {
         this.idCare = idCare;
         this.picTips = picTips;
         this.titleTips = titleTips;
         this.photoPeople = photoPeople;
         this.namePeople = namePeople;
+        this.createAt = createAt;
+        this.content = content;
     }
 
     public Care() {}
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(String createAt) {
+        this.createAt = createAt;
+    }
+
+    public String getIdCare() {
+        return idCare;
+    }
 
     public void setIdCare(String idCare) {
         this.idCare = idCare;
