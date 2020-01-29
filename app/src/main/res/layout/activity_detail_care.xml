@@ -40,6 +40,7 @@
                 android:background="@drawable/bg_shape_menu"/>
 
             <TextView
+                android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Baby Food Recommendation"
@@ -74,7 +75,7 @@
                     android:layout_marginStart="@dimen/_25sdp"/>
 
                 <TextView
-                    android:id="@+id/tvPopleName"
+                    android:id="@+id/tvAuthor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Angelica Witson"
@@ -85,7 +86,7 @@
                     android:textColor="#9F9F9F"/>
 
                 <TextView
-                    android:id="@+id/tvTitle"
+                    android:id="@+id/tvSubtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Kenapa bayi harus diberikan makanan lain di usia 6 bulan?"
@@ -102,7 +103,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/tvContent"
                     android:textSize="@dimen/_13ssp"
-                    android:layout_below="@+id/tvTitle"
+                    android:layout_below="@+id/tvSubtitle"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginStart="@dimen/_25sdp"
                     android:layout_marginEnd="@dimen/_25sdp"

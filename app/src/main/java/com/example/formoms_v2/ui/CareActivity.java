@@ -3,6 +3,7 @@ package com.example.formoms_v2.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -14,6 +15,7 @@ import com.example.formoms_v2.R;
 import com.example.formoms_v2.adapter.CareAdapter;
 import com.example.formoms_v2.adapter.pojo.Care;
 import com.example.formoms_v2.adapter.pojo.RecyclerItemClickListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,7 +26,13 @@ import java.util.ArrayList;
 
 public class CareActivity extends AppCompatActivity {
 
+    public static final String CARE_ID = "CARE_ID";
+    public static final String CARE_TITLE = "CARE_TITLE";
+    public static final String CARE_CONTENT = "CARE_CONTENT";
+    public static final String CARE_AUTHOR = "CARE_AUTHOR";
+
     private ArrayList<Care> dataListTips;
+    private FloatingActionButton btnAdd;
     private RecyclerView recyclerViewCareTips;
     private CareAdapter adapterCare;
 
@@ -51,13 +59,14 @@ public class CareActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_care);
-        //Manggil Recycler View Care
 
+        // Get view by id
         recyclerViewCareTips = (RecyclerView) findViewById(R.id.rvCare);
+        btnAdd = (FloatingActionButton) findViewById(R.id.fab_add);
+
         dataListTips = new ArrayList<>();
 
         eventListener();
-
 
         // Get a reference to our posts
         database = FirebaseDatabase.getInstance();
@@ -92,8 +101,21 @@ public class CareActivity extends AppCompatActivity {
         recyclerViewCareTips.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                startActivity(new Intent(CareActivity.this, DetailCareActivity.class));
+                Care care = dataListTips.get(position);
+                Intent intent = new Intent(CareActivity.this, DetailCareActivity.class);
+                intent.putExtra(CARE_ID, care.getIdCare());
+                intent.putExtra(CARE_TITLE, care.getTitleTips());
+                intent.putExtra(CARE_CONTENT, care.getContent());
+                intent.putExtra(CARE_AUTHOR, care.getNamePeople());
+                startActivity(intent);
             }
         }));
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CareActivity.this, ManageCareActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
