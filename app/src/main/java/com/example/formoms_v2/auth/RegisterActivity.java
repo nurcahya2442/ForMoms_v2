@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,8 +24,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
-    Button btn_regis;
-    EditText email_regis,password_regis;
+    TextView btn_regis, btn_login;
+    EditText email_regist, password_regist, name_regist;
     private FirebaseAuth mAuth;
     private DatabaseReference ref;
     private FirebaseDatabase database;
@@ -32,10 +33,14 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_register);
-        btn_regis = (Button) findViewById(R.id.btn_regis);
-        email_regis= (EditText) findViewById(R.id.email_regis);
-        password_regis= (EditText) findViewById(R.id.password_regis);
+        setContentView(R.layout.activity_registrasi);
+
+        // Get view by id
+        btn_regis = (TextView) findViewById(R.id.btnRegister);
+        btn_login = (TextView) findViewById(R.id.tvLinkLogin);
+        name_regist = (EditText) findViewById(R.id.edtNamaRegis);
+        email_regist= (EditText) findViewById(R.id.edtEmailRegis);
+        password_regist = (EditText) findViewById(R.id.edtPasswordRegis);
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
@@ -43,21 +48,25 @@ public class RegisterActivity extends AppCompatActivity {
         btn_regis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String email = email_regis.getText().toString();
-                final String password = password_regis.getText().toString();
+                final String email = email_regist.getText().toString(), password = password_regist.getText().toString(), displayName = name_regist.getText().toString();
 
+                if(displayName.isEmpty()){
+                    name_regist.setError("Nama tidak boleh kosong");
+                    name_regist.requestFocus();
+                    return;
+                }
                 if (email.isEmpty()){
-                    email_regis.setError("email kosong");
-                    email_regis.requestFocus();
+                    email_regist.setError("Email tidak boleh kosong");
+                    email_regist.requestFocus();
                     return;
                 }
                 if (password.isEmpty()){
-                    password_regis.setError("password kosong");
-                    password_regis.requestFocus();
+                    password_regist.setError("Password tidak boleh kosong");
+                    password_regist.requestFocus();
                     return;
                 }else if(password.length()<6){
-                    password_regis.setError("Minimal 6 digit password");
-                    password_regis.requestFocus();
+                    password_regist.setError("Minimal 6 digit password");
+                    password_regist.requestFocus();
                     return;
                 }
 
