@@ -5,4 +5,7 @@
     <color name="colorAccent">#D81B60</color>
     <color name="bgScreen">#FFFFFFFF</color>
     <color name="bgApk">#0887A2</color>
+
+    <color name="bg_splash">#0ABDE3</color>
+    <color name="txtColor">#FFFFFFFF</color>
 </resources>

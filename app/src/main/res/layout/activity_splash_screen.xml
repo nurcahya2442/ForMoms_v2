@@ -20,15 +20,16 @@
             android:id="@+id/splashtaxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="For Mom"
-            android:textSize="40sp"
+            android:text="For Mom's"
+            android:textSize="@dimen/_40ssp"
             android:textColor="#fff"
             android:textStyle="bold"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             app:layout_constraintTop_toBottomOf="@id/splashgambar"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
+            app:layout_constraintRight_toRightOf="parent"
+            android:fontFamily="@font/nunito_extrabold"/>
 
     <ProgressBar
         android:layout_marginTop="20dp"
@@ -37,5 +38,5 @@
         android:layout_centerHorizontal="true"
         app:layout_constraintTop_toBottomOf="@id/splashtaxt"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

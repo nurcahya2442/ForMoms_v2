@@ -30,7 +30,7 @@
                 android:id="@+id/ivMenuBars"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
-                android:src="@drawable/fa_bars"
+                android:src="@drawable/ic_back"
                 android:paddingTop="@dimen/_6sdp"
                 android:paddingLeft="@dimen/_6sdp"
                 android:paddingRight="@dimen/_6sdp"
@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Baby Food Recommendation"
-                android:textStyle="bold"
+                android:fontFamily="@font/nunito_extrabold"
                 android:textSize="@dimen/_25ssp"
                 android:textColor="#fff"
                 android:layout_alignParentBottom="true"
@@ -83,7 +83,8 @@
                     android:layout_toRightOf="@id/ivPeopleImage"
                     android:layout_marginTop="@dimen/_30sdp"
                     android:layout_marginStart="@dimen/_7sdp"
-                    android:textColor="#9F9F9F"/>
+                    android:textColor="#9F9F9F"
+                    android:fontFamily="@font/nunito_extralight"/>
 
                 <TextView
                     android:id="@+id/tvSubtitle"
@@ -95,7 +96,8 @@
                     android:layout_below="@id/ivPeopleImage"
                     android:layout_marginTop="@dimen/_7sdp"
                     android:layout_marginStart="@dimen/_25sdp"
-                    android:layout_marginEnd="@dimen/_25sdp"/>
+                    android:layout_marginEnd="@dimen/_25sdp"
+                    android:fontFamily="@font/nunito"/>
 
                 <TextView
                     android:id="@+id/tvContent"
@@ -107,7 +109,8 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginStart="@dimen/_25sdp"
                     android:layout_marginEnd="@dimen/_25sdp"
-                    android:textColor="#9F9F9F"/>
+                    android:textColor="#9F9F9F"
+                    android:fontFamily="@font/nunito_light"/>
 
             </RelativeLayout>
 

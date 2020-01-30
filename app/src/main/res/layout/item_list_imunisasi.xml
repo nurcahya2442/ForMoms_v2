@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/relativeWhite"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_95sdp"
+        android:background="#321BCFFC"
+        android:layout_marginTop="@dimen/_8sdp">
+
+        <RelativeLayout
+            android:id="@+id/relativeBatas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvNamaImun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hepatitis A"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:textSize="@dimen/_16ssp"
+            android:textColor="#0ABDE3"
+            android:fontFamily="@font/nunito_semibold"/>
+
+
+            <ImageView
+                android:id="@+id/ivChecklist"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/ic_checked"
+                android:layout_toRightOf="@id/tvNamaImun"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginStart="@dimen/_50sdp"/>
+
+            <TextView
+                android:id="@+id/tvSudahImun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sudah Imunisasi"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_toRightOf="@id/ivChecklist"
+                android:textSize="@dimen/_15ssp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:textColor="#5BCE43"
+                android:fontFamily="@font/nunito"/>
+
+
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tvUmurBayi"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:text="2 Bulan "
+            android:textSize="@dimen/_15ssp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_below="@id/relativeBatas"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:background="@drawable/bg_shape_full"
+            android:textColor="#fff"
+            android:fontFamily="@font/nunito_bold"
+            android:gravity="center"/>
+
+
+        <ImageView
+            android:id="@+id/ivNotifImun"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:src="@drawable/notification"
+            android:layout_toRightOf="@id/tvUmurBayi"
+            android:layout_below="@id/relativeBatas"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_10sdp"/>
+
+        <TextView
+            android:id="@+id/tvNotifikasiImun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ingatkan Saya"
+            android:textSize="@dimen/_15ssp"
+            android:layout_toRightOf="@id/ivNotifImun"
+            android:layout_below="@id/relativeBatas"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:fontFamily="@font/nunito"
+            android:textColor="#B9A22C"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

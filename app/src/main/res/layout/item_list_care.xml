@@ -29,7 +29,8 @@
             android:textSize="@dimen/_12ssp"
             android:layout_below="@id/ivListFood"
             android:textColor="@android:color/black"
-            android:layout_marginTop="@dimen/_5sdp"/>
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/nunito_semibold"/>
 
 
         <ImageView
@@ -50,7 +51,8 @@
             android:layout_toRightOf="@id/ivPeopleImage"
             android:layout_marginTop="@dimen/_7sdp"
             android:layout_marginStart="@dimen/_5sdp"
-            android:textColor="#9F9F9F"/>
+            android:textColor="#9F9F9F"
+            android:fontFamily="@font/nunito_light"/>
 
 
     </RelativeLayout>
