@@ -231,7 +231,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.menu_care) {
             startActivity(new Intent(context, CareActivity.class));
         } else if (id == R.id.menu_chcekup) {
-            Toast.makeText(context, "Fitur Belum Tersedia", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(context, ImunisasiActivity.class));
         } else if (id == R.id.menu_Logout) {
             Toast.makeText(context, "Fitur Belum Tersedia", Toast.LENGTH_SHORT).show();
         }

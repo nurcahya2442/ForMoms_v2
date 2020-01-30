@@ -27,13 +27,6 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:background="@drawable/bg_shape_menu"/>
 
-        <ImageView
-            android:id="@+id/ivProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_profile"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:layout_marginStart="@dimen/_90sdp"/>
 
 
         <TextView
@@ -44,8 +37,9 @@
             android:textColor="#fff"
             android:textSize="@dimen/_25ssp"
             android:textStyle="bold"
-            android:layout_marginStart="@dimen/_130sdp"
-            android:layout_marginTop="@dimen/_15sdp"/>
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/nunito_extrabold"/>
 
     </RelativeLayout>
 
@@ -84,14 +78,15 @@
         android:id="@+id/tvNameProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tv_name_profile"
-        android:hint="Nama Bayi"
         android:layout_below="@id/ivImageProfile"
         android:layout_centerHorizontal="true"
-        android:textSize="@dimen/_18ssp"
         android:layout_marginTop="@dimen/_35sdp"
+        android:fontFamily="@font/nunito"
+        android:hint="Nama Bayi"
+        android:text="@string/tv_name_profile"
         android:textColor="@android:color/black"
-        android:textColorHint="#0ABDE3" />
+        android:textColorHint="#0ABDE3"
+        android:textSize="@dimen/_18ssp" />
 
     <TextView
         android:id="@+id/tvTanggalLahir"
@@ -103,7 +98,8 @@
         android:textSize="@dimen/_14ssp"
         android:gravity="center"
         android:textColor="#888888"
-        android:hint="Tanggal Lahir"/>
+        android:hint="Tanggal Lahir"
+        android:fontFamily="@font/nunito_light"/>
 
     <ImageView
         android:id="@+id/ivTempatLahir"
@@ -123,7 +119,8 @@
         android:layout_toRightOf="@id/ivTempatLahir"
         android:layout_marginStart="@dimen/_5sdp"
         android:textSize="@dimen/_14ssp"
-        android:textColor="#9F9F9F"/>
+        android:textColor="#9F9F9F"
+        android:fontFamily="@font/nunito_light"/>
 
     <TextView
         android:id="@+id/tvBtnEditProfile"
@@ -138,7 +135,8 @@
         android:background="@drawable/bg_shape_corner_umur"
         android:textSize="@dimen/_13ssp"
         android:textAlignment="center"
-        android:paddingTop="@dimen/_5sdp"/>
+        android:paddingTop="@dimen/_5sdp"
+        android:fontFamily="@font/nunito_bold"/>
 
     <TextView
         android:id="@+id/tvStatusBayi"
@@ -150,7 +148,8 @@
         android:layout_centerHorizontal="true"
         android:textColor="#888888"
         android:textSize="@dimen/_13ssp"
-        android:layout_marginTop="@dimen/_16sdp"/>
+        android:layout_marginTop="@dimen/_16sdp"
+        android:fontFamily="@font/nunito_light"/>
 
     <TextView
         android:id="@+id/tvHobby1"

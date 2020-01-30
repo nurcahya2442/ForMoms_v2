@@ -30,15 +30,6 @@
                 android:src="@drawable/fa_bars" />
 
 
-
-            <ImageView
-                android:id="@+id/ivMemories"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_memories"
-                android:layout_marginTop="@dimen/_13sdp"
-                android:layout_marginStart="@dimen/_70sdp"/>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,8 +37,8 @@
                 android:text="Memories"
                 android:textColor="#fff"
                 android:textSize="@dimen/_25ssp"
-                android:textStyle="bold"
-                android:layout_marginStart="@dimen/_120sdp"/>
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/nunito_extrabold"/>
 
         </RelativeLayout>
 
