@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,6 +16,7 @@ import com.example.formoms_v2.R;
 import com.example.formoms_v2.adapter.CareAdapter;
 import com.example.formoms_v2.adapter.pojo.Care;
 import com.example.formoms_v2.adapter.pojo.RecyclerItemClickListener;
+import com.example.formoms_v2.adapter.pojo.User;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,34 +28,15 @@ import java.util.ArrayList;
 
 public class CareActivity extends AppCompatActivity {
 
-    public static final String CARE_ID = "CARE_ID";
-    public static final String CARE_TITLE = "CARE_TITLE";
-    public static final String CARE_CONTENT = "CARE_CONTENT";
-    public static final String CARE_AUTHOR = "CARE_AUTHOR";
+    public static final String CARE_ID = "CARE_ID", CARE_TITLE = "CARE_TITLE", CARE_CONTENT = "CARE_CONTENT", CARE_AUTHOR = "CARE_AUTHOR";
 
     private ArrayList<Care> dataListTips;
     private FloatingActionButton btnAdd;
     private RecyclerView recyclerViewCareTips;
     private CareAdapter adapterCare;
 
-    DatabaseReference ref;
-    public FirebaseDatabase database;
-
-    //Data Recycler View Dummy Care Tips
-    private int[] foodPic = new int[]{
-            R.drawable.food,
-            R.drawable.food
-    };
-
-    private String[] judulTips = new String[]{"Baby Food Recommendation", "How To Take Care A Baby"};
-
-    private int[] peoplePhoto = new int[]{
-            R.drawable.people,
-            R.drawable.people
-    };
-
-    private String[] name = new String[]{"Angelica Witson", "Pretty Jonson"};
-
+    private DatabaseReference refCare;
+    private FirebaseDatabase database;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -70,13 +53,13 @@ public class CareActivity extends AppCompatActivity {
 
         // Get a reference to our posts
         database = FirebaseDatabase.getInstance();
-        ref = database.getReference("Care");
+        refCare = database.getReference("Care");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        ref.addValueEventListener(new ValueEventListener() {
+        refCare.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 dataListTips.clear();

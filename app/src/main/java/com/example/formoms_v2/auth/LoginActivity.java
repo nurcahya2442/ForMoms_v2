@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,9 +21,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
+    private TextView mloginBtn, mregisterBtn;
     private EditText mEmailField;
     private EditText mPasswordField;
-    private Button mloginBtn,mregisterBtn;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -30,34 +31,33 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_login);
+        setContentView(R.layout.activity_login);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        mEmailField = findViewById(R.id.email_login);
-        mPasswordField = findViewById(R.id.password_login);
-        mloginBtn = findViewById(R.id.btn_login);
+        // Get view by id
+        mEmailField = (EditText) findViewById(R.id.edtUsername);
+        mPasswordField = (EditText) findViewById(R.id.edtPassword);
+        mloginBtn = (TextView) findViewById(R.id.btnLogin);
+        mregisterBtn = (TextView) findViewById(R.id.tvLinkRegis);
+
+        // Get instance firebase auth
         mAuth = FirebaseAuth.getInstance();
 
-        mregisterBtn =(Button) findViewById(R.id.btn_regist);
+        // Event Listener
         mregisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
             }
         });
-
         mAuthListener = new FirebaseAuth.AuthStateListener() {
-
             @Override
-
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-
                 if (firebaseAuth.getCurrentUser() != null) {
                     startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                 }
             }
         };
-
         mloginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
 
