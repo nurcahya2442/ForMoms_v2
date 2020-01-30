@@ -11,10 +11,7 @@ import com.example.formoms_v2.R;
 
 public class DetailCareActivity extends AppCompatActivity {
 
-    private TextView txtTitle;
-    private TextView txtDesc;
-    private TextView txtAuthor;
-
+    private TextView txtTitle,txtDesc,txtAuthor, txtSubtitle;
     private String id, title, content, author;
 
     @Override
@@ -23,10 +20,10 @@ public class DetailCareActivity extends AppCompatActivity {
          setContentView(R.layout.activity_detail_care);
 
          Intent intent = getIntent();
-         id = intent.getStringExtra(CareActivity.CARE_ID);
-         title = intent.getStringExtra(CareActivity.CARE_TITLE);
-         content = intent.getStringExtra(CareActivity.CARE_CONTENT);
-         author = intent.getStringExtra(CareActivity.CARE_AUTHOR);
+         id = (intent.getStringExtra(HomeActivity.CARE_ID) != null) ? intent.getStringExtra(CareActivity.CARE_ID) : intent.getStringExtra(CareActivity.CARE_ID);
+         title = (intent.getStringExtra(HomeActivity.CARE_TITLE) != null) ? intent.getStringExtra(CareActivity.CARE_TITLE) : intent.getStringExtra(CareActivity.CARE_TITLE);
+         content = (intent.getStringExtra(HomeActivity.CARE_CONTENT) != null) ? intent.getStringExtra(CareActivity.CARE_CONTENT) : intent.getStringExtra(CareActivity.CARE_CONTENT);
+         author = (intent.getStringExtra(HomeActivity.CARE_AUTHOR) != null) ? intent.getStringExtra(CareActivity.CARE_AUTHOR) : intent.getStringExtra(CareActivity.CARE_AUTHOR);
 
          initComponent();
     }
@@ -35,9 +32,11 @@ public class DetailCareActivity extends AppCompatActivity {
         txtTitle = (TextView) findViewById(R.id.tvTitle);
         txtDesc = (TextView) findViewById(R.id.tvContent);
         txtAuthor = (TextView) findViewById(R.id.tvAuthor);
+        txtSubtitle = (TextView) findViewById(R.id.tvSubtitle);
 
         txtTitle.setText(title);
         txtDesc.setText(content);
         txtAuthor.setText(author);
+        txtSubtitle.setText(title);
     }
 }

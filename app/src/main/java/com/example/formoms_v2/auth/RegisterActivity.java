@@ -1,5 +1,6 @@
 package com.example.formoms_v2.auth;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +28,6 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference ref;
     private FirebaseDatabase database;
-    private FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
         password_regis= (EditText) findViewById(R.id.password_regis);
 
         mAuth = FirebaseAuth.getInstance();
-        currentUser = mAuth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
-        ref = database.getReference("User");
 
         btn_regis.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,22 +65,32 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
+                            // Get reference
+                            ref = database.getReference("User");
+
                             // Get user id
                             String id= mAuth.getCurrentUser().getUid();
-
-                            // Set display name user
-                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName("Herlangga").build();
-                            currentUser.updateProfile(profileUpdates);
 
                             User user = new User( id,null,email,password,null,null,null,null);
 
                             // Add data to firebase
-                            ref.child(id).setValue(user);
+                            ref.child(id).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    Toast.makeText(RegisterActivity.this, "Data berhasil tersimpan", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+                            // Set display name user
+                            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName("null").build();
+                            currentUser.updateProfile(profileUpdates);
 
                             // Show toast
                             Toast.makeText(RegisterActivity.this, "Berhasil", Toast.LENGTH_SHORT).show();
 
-                            //startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+                            startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {

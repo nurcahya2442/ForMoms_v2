@@ -41,11 +41,13 @@ import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    public static final String CARE_ID = "CARE_ID", CARE_TITLE = "CARE_TITLE", CARE_CONTENT = "CARE_CONTENT", CARE_AUTHOR = "CARE_AUTHOR";
+
     private ArrayList<RecentMemories> listPhoto;
     private RecyclerView recyclerView;
     private RecentAdapter adapter;
 
-    private ArrayList<CareTips> dataListTips;
+    private ArrayList<Care> dataListTips;
     private RecyclerView recyclerViewCareTips;
     private CareTipsAdapter adapterCareTips;
 
@@ -165,7 +167,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             public void onDataChange(DataSnapshot dataSnapshot) {
                 dataListTips.clear();
                 for (DataSnapshot value : dataSnapshot.getChildren()) {
-                    CareTips care = value.getValue(CareTips.class);
+                    Care care = value.getValue(Care.class);
                     dataListTips.add(care);
                 }
                 adapterCareTips = new CareTipsAdapter(dataListTips);
@@ -210,11 +212,16 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         });
 
 
-
         recyclerViewCareTips.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                startActivity(new Intent(HomeActivity.this, DetailCareActivity.class));
+                Care care = dataListTips.get(position);
+                Intent intent = new Intent(HomeActivity.this, DetailCareActivity.class);
+                intent.putExtra(CARE_ID, care.getIdCare());
+                intent.putExtra(CARE_TITLE, care.getTitleTips());
+                intent.putExtra(CARE_CONTENT, care.getContent());
+                intent.putExtra(CARE_AUTHOR, care.getNamePeople());
+                startActivity(intent);
             }
         }));
     }

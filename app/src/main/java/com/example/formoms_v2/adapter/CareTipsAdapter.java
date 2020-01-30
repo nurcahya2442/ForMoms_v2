@@ -18,9 +18,9 @@ import com.example.formoms_v2.adapter.pojo.CareTips;
 import java.util.ArrayList;
 
 public class CareTipsAdapter extends RecyclerView.Adapter<CareTipsAdapter.ViewHolder> {
-    private ArrayList<CareTips> dataList;
+    private ArrayList<Care> dataList;
 
-    public CareTipsAdapter(ArrayList<CareTips> dataList){
+    public CareTipsAdapter(ArrayList<Care> dataList){
         this.dataList = dataList;
     }
 
