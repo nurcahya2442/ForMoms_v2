@@ -65,15 +65,14 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".ui.ImunisasiActivity"
-            android:label="Imunisasi"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
             android:name=".ui.ManageCareActivity"
             android:label="Add Care"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ui.ImunisasiActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ui.ManageImunisasiActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
