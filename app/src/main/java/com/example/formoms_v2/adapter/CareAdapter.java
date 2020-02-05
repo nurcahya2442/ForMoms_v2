@@ -10,6 +10,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.Target;
 import com.example.formoms_v2.R;
 import com.example.formoms_v2.adapter.pojo.Care;
 
@@ -18,9 +22,11 @@ import java.util.List;
 
 public class CareAdapter extends RecyclerView.Adapter<CareAdapter.ViewHolder> {
     private List<Care> dataList;
+    private Context context;
 
-    public CareAdapter( List<Care> dataList){
+    public CareAdapter(Context context, List<Care> dataList){
         this.dataList = dataList;
+        this.context = context;
     }
 
     @NonNull
@@ -33,7 +39,10 @@ public class CareAdapter extends RecyclerView.Adapter<CareAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-//        holder.ivTips.setImageResource(dataList.get(position).getPicTips());
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions = requestOptions.transform(new RoundedCorners(16));
+
+        Glide.with(context).load(dataList.get(position).getPicTips()).apply(requestOptions).into(holder.ivTips);
         holder.tvJudulTips.setText(dataList.get(position).getTitleTips());
 //        holder.ivPeople.setImageResource(dataList.get(position).getPhotoPeople());
         holder.tvName.setText(dataList.get(position).getNamePeople());

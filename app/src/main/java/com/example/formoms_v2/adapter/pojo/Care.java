@@ -1,15 +1,9 @@
 package com.example.formoms_v2.adapter.pojo;
 
 public class Care {
-    private String idCare;
-    private int picTips;
-    private String titleTips;
-    private int photoPeople;
-    private String namePeople;
-    private String content;
-    private String createAt;
+    private String idCare, picTips, titleTips, namePeople, content, createAt, photoPeople;
 
-    public Care(String idCare, int picTips, String titleTips, int photoPeople, String namePeople, String content, String createAt) {
+    public Care(String idCare, String picTips, String titleTips, String photoPeople, String namePeople, String content, String createAt) {
         this.idCare = idCare;
         this.picTips = picTips;
         this.titleTips = titleTips;
@@ -20,6 +14,38 @@ public class Care {
     }
 
     public Care() {}
+
+    public String getIdCare() {
+        return idCare;
+    }
+
+    public void setIdCare(String idCare) {
+        this.idCare = idCare;
+    }
+
+    public String getPicTips() {
+        return picTips;
+    }
+
+    public void setPicTips(String picTips) {
+        this.picTips = picTips;
+    }
+
+    public String getTitleTips() {
+        return titleTips;
+    }
+
+    public void setTitleTips(String titleTips) {
+        this.titleTips = titleTips;
+    }
+
+    public String getNamePeople() {
+        return namePeople;
+    }
+
+    public void setNamePeople(String namePeople) {
+        this.namePeople = namePeople;
+    }
 
     public String getContent() {
         return content;
@@ -37,43 +63,11 @@ public class Care {
         this.createAt = createAt;
     }
 
-    public String getIdCare() {
-        return idCare;
-    }
-
-    public void setIdCare(String idCare) {
-        this.idCare = idCare;
-    }
-
-    public int getPicTips() {
-        return picTips;
-    }
-
-    public void setPicTips(int picTips) {
-        this.picTips = picTips;
-    }
-
-    public int getPhotoPeople() {
+    public String getPhotoPeople() {
         return photoPeople;
     }
 
-    public void setPhotoPeople(int photoPeople) {
+    public void setPhotoPeople(String photoPeople) {
         this.photoPeople = photoPeople;
-    }
-
-    public String getTitleTips() {
-        return titleTips;
-    }
-
-    public void setTitleTips(String titleTips) {
-        this.titleTips = titleTips;
-    }
-
-    public String getNamePeople() {
-        return namePeople;
-    }
-
-    public void setNamePeople(String namePeople) {
-        this.namePeople = namePeople;
     }
 }
