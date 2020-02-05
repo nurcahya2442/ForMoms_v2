@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     android:background="#0ABDE3">
 
-
-
         <ImageView
             android:id="@+id/splashgambar"
             android:layout_width="250dp"

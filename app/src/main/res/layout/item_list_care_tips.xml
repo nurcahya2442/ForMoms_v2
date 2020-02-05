@@ -17,6 +17,7 @@
             android:layout_width="@dimen/_118sdp"
             android:layout_height="@dimen/_93sdp"
             android:src="@drawable/food"
+            android:scaleType="centerCrop"
             android:layout_marginStart="@dimen/_1sdp"
             android:layout_centerHorizontal="true"/>
 

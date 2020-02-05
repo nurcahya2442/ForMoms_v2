@@ -67,7 +67,7 @@ public class CareActivity extends AppCompatActivity {
                     Care care = value.getValue(Care.class);
                     dataListTips.add(care);
                 }
-                adapterCare = new CareAdapter(dataListTips);
+                adapterCare = new CareAdapter(CareActivity.this, dataListTips);
                 recyclerViewCareTips.setAdapter(adapterCare);
                 recyclerViewCareTips.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
                 adapterCare.notifyDataSetChanged();

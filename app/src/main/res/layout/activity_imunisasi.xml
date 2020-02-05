@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#fff">
 
     <RelativeLayout
@@ -35,10 +35,10 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_20sdp"
+                android:fontFamily="@font/nunito_extrabold"
                 android:text="Imunisasi"
                 android:textColor="#fff"
-                android:textSize="@dimen/_25ssp"
-                android:fontFamily="@font/nunito_extrabold"/>
+                android:textSize="@dimen/_25ssp" />
 
         </RelativeLayout>
 
@@ -47,68 +47,74 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/relative1">
 
-            <androidx.core.widget.NestedScrollView
+
+            <RelativeLayout
+                android:id="@+id/relative2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:overScrollMode="never">
+                android:background="@drawable/bg_shape_corner">
 
                 <RelativeLayout
-                    android:id="@+id/relative2"
+                    android:id="@+id/relative3"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_shape_corner">
-
-                    <RelativeLayout
-                        android:id="@+id/relative3"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_50sdp"
-                        android:background="@drawable/bg_shape_corner_transparent">
-
-                        <TextView
-                            android:id="@+id/tvJadwalImun"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Jadwal Imunisasi"
-                            android:textSize="@dimen/_16ssp"
-                            android:textColor="#0ABDE3"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:fontFamily="@font/nunito_semibold"/>
-
-                    </RelativeLayout>
-
-                    <ImageView
-                        android:id="@+id/ivCoverBumil"
-                        android:layout_width="@dimen/_170sdp"
-                        android:layout_height="@dimen/_170sdp"
-                        android:src="@drawable/ic_cover_bumil"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@id/relative3"
-                        android:layout_marginTop="@dimen/_10sdp"/>
+                    android:layout_height="@dimen/_50sdp"
+                    android:background="@drawable/bg_shape_corner_transparent">
 
                     <TextView
-                        android:id="@+id/tvIntro"
-                        android:layout_width="@dimen/_250sdp"
+                        android:id="@+id/tvJadwalImun"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Jangan lupa imunisasi untuk si buah hati ya bunda ! ^^"
                         android:layout_centerHorizontal="true"
-                        android:gravity="center"
-                        android:layout_below="@id/ivCoverBumil"
-                        android:textSize="@dimen/_15ssp"
-                        android:fontFamily="@font/nunito"
-                        android:textColor="#9F9F9F"/>
-
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerImun"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/tvIntro"
-                        android:layout_marginTop="@dimen/_16sdp"/>
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/nunito_semibold"
+                        android:text="Jadwal Imunisasi"
+                        android:textColor="#0ABDE3"
+                        android:textSize="@dimen/_16ssp" />
 
                 </RelativeLayout>
 
-            </androidx.core.widget.NestedScrollView>
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/relative3"
+                    android:overScrollMode="never">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/ivCoverBumil"
+                            android:layout_width="@dimen/_170sdp"
+                            android:layout_height="@dimen/_170sdp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:src="@drawable/ic_cover_bumil" />
+
+                        <TextView
+                            android:id="@+id/tvIntro"
+                            android:layout_width="@dimen/_250sdp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/ivCoverBumil"
+                            android:layout_centerHorizontal="true"
+                            android:fontFamily="@font/nunito"
+                            android:gravity="center"
+                            android:text="Jangan lupa imunisasi untuk si buah hati ya bunda ! ^^"
+                            android:textColor="#9F9F9F"
+                            android:textSize="@dimen/_15ssp" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerImun"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvIntro"
+                            android:layout_marginTop="@dimen/_16sdp" />
+                    </RelativeLayout>
+
+                </androidx.core.widget.NestedScrollView>
+
+            </RelativeLayout>
 
         </RelativeLayout>
 

@@ -80,7 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
                             // Get user id
                             String id= mAuth.getCurrentUser().getUid();
 
-                            User user = new User( id,null,email,password,null,null,null,null);
+                            User user = new User( id,displayName,email,password,null,null,null,null);
 
                             // Add data to firebase
                             ref.child(id).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -93,7 +93,7 @@ public class RegisterActivity extends AppCompatActivity {
                             // Set display name user
                             FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
                             UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                                    .setDisplayName("null").build();
+                                    .setDisplayName(displayName).build();
                             currentUser.updateProfile(profileUpdates);
 
                             // Show toast

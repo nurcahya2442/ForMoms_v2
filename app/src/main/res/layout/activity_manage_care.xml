@@ -1,47 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:overScrollMode="never">
 
     <RelativeLayout
-        android:id="@+id/relative_1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/_16sdp">
+        android:background="#0ABDE3">
+        <ImageView
+            android:id="@+id/iv_change"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:src="@drawable/food"
+            android:scaleType="centerCrop"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:src="@drawable/dark_50"/>
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Judul"/>
+        <RelativeLayout
+            android:id="@+id/relative1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_180sdp"
+            android:background="@android:color/transparent">
 
-        <EditText
-            android:id="@+id/txt_title"
+            <ImageView
+                android:id="@+id/ivMenuBars"
+                android:layout_width="@dimen/_29sdp"
+                android:layout_height="@dimen/_29sdp"
+                android:src="@drawable/ic_back"
+                android:paddingTop="@dimen/_9sdp"
+                android:paddingLeft="@dimen/_9sdp"
+                android:paddingRight="@dimen/_9sdp"
+                android:paddingBottom="@dimen/_9sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@drawable/bg_shape_menu"/>
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ganti Foto"
+                android:fontFamily="@font/nunito_extrabold"
+                android:textSize="@dimen/_25ssp"
+                android:textColor="#fff"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative2"
+            android:layout_below="@+id/relative1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_title"/>
+            android:background="@drawable/bg_shape_corner">
 
-        <TextView
-            android:id="@+id/tv_desc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_title"
-            android:text="Deskripsi"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_30sdp">
 
-        <EditText
-            android:id="@+id/txt_desc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_desc"/>
+                <EditText
+                    android:id="@+id/txt_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_15ssp"
+                    android:textColor="#000"
+                    android:hint="Judul"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_25sdp"
+                    android:layout_marginEnd="@dimen/_25sdp"
+                    android:fontFamily="@font/nunito"/>
 
-        <Button
-            android:id="@+id/btn_simpan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Simpan"
-            android:layout_below="@+id/txt_desc"
-            android:layout_centerInParent="true"/>
+                <EditText
+                    android:id="@+id/txt_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Deskripsi"
+                    android:textSize="@dimen/_13ssp"
+                    android:layout_below="@+id/txt_title"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginStart="@dimen/_25sdp"
+                    android:layout_marginEnd="@dimen/_25sdp"
+                    android:textColor="#9F9F9F"
+                    android:fontFamily="@font/nunito_light"/>
+
+                <Button
+                    android:id="@+id/btn_simpan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Simpan"
+                    android:paddingStart="@dimen/_16sdp"
+                    android:paddingEnd="@dimen/_16sdp"
+                    android:layout_below="@+id/txt_desc"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
 
     </RelativeLayout>
 
-</RelativeLayout>
+</androidx.core.widget.NestedScrollView>
