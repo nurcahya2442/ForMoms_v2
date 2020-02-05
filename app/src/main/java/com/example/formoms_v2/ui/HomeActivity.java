@@ -1,8 +1,6 @@
 package com.example.formoms_v2.ui;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -10,27 +8,20 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.media.Image;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.formoms_v2.R;
-import com.example.formoms_v2.adapter.CareAdapter;
 import com.example.formoms_v2.adapter.CareTipsAdapter;
 import com.example.formoms_v2.adapter.RecentAdapter;
 import com.example.formoms_v2.adapter.pojo.Care;
-import com.example.formoms_v2.adapter.pojo.CareTips;
 import com.example.formoms_v2.adapter.pojo.RecentMemories;
 import com.example.formoms_v2.adapter.pojo.RecyclerItemClickListener;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -170,7 +161,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     Care care = value.getValue(Care.class);
                     dataListTips.add(care);
                 }
-                adapterCareTips = new CareTipsAdapter(dataListTips);
+                adapterCareTips = new CareTipsAdapter(HomeActivity.this, dataListTips);
                 recyclerViewCareTips.setAdapter(adapterCareTips);
                 recyclerViewCareTips.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
                 adapterCareTips.notifyDataSetChanged();
