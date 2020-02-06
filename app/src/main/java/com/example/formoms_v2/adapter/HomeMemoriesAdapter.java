@@ -14,24 +14,23 @@ import com.example.formoms_v2.adapter.pojo.Album;
 
 import java.util.ArrayList;
 
-public class MemoriesAdapter extends RecyclerView.Adapter<MemoriesAdapter.ViewHolder> {
-
+public class HomeMemoriesAdapter extends RecyclerView.Adapter<HomeMemoriesAdapter.ViewHolder> {
     private ArrayList<Album> dataList;
 
-    public MemoriesAdapter(ArrayList<Album> dataList){
+    public HomeMemoriesAdapter(ArrayList<Album> dataList){
         this.dataList = dataList;
     }
 
     @NonNull
     @Override
-    public MemoriesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_memories, parent, false);
-        MemoriesAdapter.ViewHolder holder = new MemoriesAdapter.ViewHolder(view);
+    public HomeMemoriesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_home_memories, parent, false);
+        HomeMemoriesAdapter.ViewHolder holder = new HomeMemoriesAdapter.ViewHolder(view);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MemoriesAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull HomeMemoriesAdapter.ViewHolder holder, int position) {
         holder.tvAlbumName.setText(dataList.get(position).getAlbumName());
         holder.tvCreatedAt.setText("Dibuat pada "+dataList.get(position).getCreatedAt());
     }

@@ -58,20 +58,49 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/bg_shape_corner">
 
+                    <TextView
+                        android:id="@+id/tvDetailAlbumName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:text="@string/tv_care_tips"
+                        android:layout_marginTop="@dimen/_35sdp"
+                        android:layout_marginBottom="@dimen/_15sdp"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_16ssp"
+                        android:fontFamily="@font/nunito_bold"/>
+
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rvMemories"
+                        android:id="@+id/rvPhoto"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_16sdp"
-                        android:layout_marginTop="@dimen/_40sdp"
-                        android:layout_marginEnd="@dimen/_16sdp" />
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:layout_below="@+id/tvDetailAlbumName"/>
+
+                    <ImageView
+                        android:id="@+id/iv_test"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
 
                 </RelativeLayout>
+
+
 
             </androidx.core.widget.NestedScrollView>
 
         </RelativeLayout>
 
     </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/_16sdp"
+        android:backgroundTint="#0ABDE3"
+        android:src="@drawable/ic_fa_plus" />
 
 </RelativeLayout>
