@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.formoms_v2.R;
 import com.example.formoms_v2.adapter.CareTipsAdapter;
 import com.example.formoms_v2.adapter.RecentAdapter;
+import com.example.formoms_v2.adapter.pojo.Album;
 import com.example.formoms_v2.adapter.pojo.Care;
 import com.example.formoms_v2.adapter.pojo.RecentMemories;
 import com.example.formoms_v2.adapter.pojo.RecyclerItemClickListener;
@@ -198,7 +199,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         tvLihatDetailMemories.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this,MemoriesActivity.class));
+                startActivity(new Intent(HomeActivity.this,AlbumActivity.class));
             }
         });
 
@@ -225,7 +226,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             // Handle the camera action
             startActivity(new Intent(context, ProfileActivity.class));
         } else if (id == R.id.menu_memories) {
-            startActivity(new Intent(context, MemoriesActivity.class));
+            startActivity(new Intent(context, AlbumActivity.class));
         } else if (id == R.id.menu_care) {
             startActivity(new Intent(context, CareActivity.class));
         } else if (id == R.id.menu_chcekup) {
