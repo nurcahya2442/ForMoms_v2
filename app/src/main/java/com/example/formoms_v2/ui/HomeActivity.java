@@ -22,7 +22,9 @@ import com.example.formoms_v2.adapter.pojo.Album;
 import com.example.formoms_v2.adapter.pojo.Care;
 import com.example.formoms_v2.adapter.pojo.RecentMemories;
 import com.example.formoms_v2.adapter.pojo.RecyclerItemClickListener;
+import com.example.formoms_v2.auth.LoginActivity;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -49,7 +51,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navigationSidebar;
 
     HomeActivity context;
-
+    private FirebaseAuth mAuth;
     DatabaseReference ref;
     public FirebaseDatabase database;
 
@@ -232,7 +234,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.menu_chcekup) {
             startActivity(new Intent(context, ImunisasiActivity.class));
         } else if (id == R.id.menu_Logout) {
-            Toast.makeText(context, "Fitur Belum Tersedia", Toast.LENGTH_SHORT).show();
+            mAuth = FirebaseAuth.getInstance();
+            mAuth.signOut();
+            finish();
+            startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
