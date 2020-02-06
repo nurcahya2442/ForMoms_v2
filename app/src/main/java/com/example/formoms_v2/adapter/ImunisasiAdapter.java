@@ -1,65 +1,46 @@
 package com.example.formoms_v2.adapter;
 
-import android.graphics.Color;
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.formoms_v2.R;
 import com.example.formoms_v2.adapter.pojo.Imunisasi;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class ImunisasiAdapter extends RecyclerView.Adapter<ImunisasiAdapter.ViewHolder> {
+import androidx.annotation.NonNull;
 
+public class ImunisasiAdapter extends ArrayAdapter {
+    private Activity con;
+    private List<Imunisasi> notelist;
 
-
-    private ArrayList<Imunisasi> dataListImun;
-
-//    public String[] mColors = {
-//            "#fff",
-//            "#0ABDE3"
-//    };
-
-    public ImunisasiAdapter(ArrayList<Imunisasi> dataListImun){
-        this.dataListImun = dataListImun;
-
+    public ImunisasiAdapter(Activity con, List<Imunisasi> list){
+        super(con, R.layout.imunisasi_row,list);
+        this.con = con;
+        this.notelist = list;
     }
 
+    @NonNull
     @Override
-    public ImunisasiAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_imunisasi, parent, false);
-        ImunisasiAdapter.ViewHolder holder = new ImunisasiAdapter.ViewHolder(view);
-        return holder;
-    }
+    public View getView(int position, View cview, ViewGroup parent){
+        LayoutInflater inflater = con.getLayoutInflater();
 
-    @Override
-    public void onBindViewHolder(@NonNull ImunisasiAdapter.ViewHolder holder, int position) {
-        holder.tvNamaImun.setText(dataListImun.get(position).getNamaImun());
-        holder.tvUmurBayi.setText(dataListImun.get(position).getUmurImun());
-//        holder.itemView.setBackgroundColor(Color.parseColor(mColors[position % 2]));
+        View ListView = inflater.inflate(R.layout.imunisasi_row,null,true);
 
-    }
+        TextView jdl = ListView.findViewById(R.id.judul);
+        TextView detail = ListView.findViewById(R.id.detail);
+        TextView tanggal = ListView.findViewById(R.id.txt_tanggal);
 
-    @Override
-    public int getItemCount() {
-        return dataListImun.size();
-    }
+        Imunisasi note = notelist.get(position);
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvNamaImun;
-        TextView tvUmurBayi;
+        jdl.setText(note.getJudul());
+        detail.setText(note.getDeskripsi());
+        tanggal.setText(note.getTanggal());
 
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-            tvNamaImun = itemView.findViewById(R.id.tvNamaImun);
-            tvUmurBayi = itemView.findViewById(R.id.tvUmurBayi);
-        }
+        return ListView;
     }
 }

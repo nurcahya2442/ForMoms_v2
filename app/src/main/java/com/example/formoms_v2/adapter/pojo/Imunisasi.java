@@ -1,22 +1,32 @@
 package com.example.formoms_v2.adapter.pojo;
-
 public class Imunisasi {
-    private String namaImun;
-    private String umurImun;
 
-    public String getNamaImun() {
-        return namaImun;
+    String id,judul,deskripsi,tanggal;
+
+    public Imunisasi(){
+
     }
 
-    public void setNamaImun(String namaImun) {
-        this.namaImun = namaImun;
+    public Imunisasi(String id, String judul, String deskripsi, String tanggal){
+        this.tanggal = tanggal;
+        this.id = id;
+        this.judul = judul;
+        this.deskripsi = deskripsi;
     }
 
-    public String getUmurImun() {
-        return umurImun;
+    public String getId() {
+        return id;
     }
 
-    public void setUmurImun(String umurImun) {
-        this.umurImun = umurImun;
+    public String getJudul() {
+        return judul;
+    }
+
+    public String getDeskripsi() {
+        return deskripsi;
+    }
+
+    public String getTanggal() {
+        return tanggal;
     }
 }
