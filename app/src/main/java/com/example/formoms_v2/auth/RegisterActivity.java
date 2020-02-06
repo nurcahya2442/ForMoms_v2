@@ -25,7 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
     TextView btn_regis, btn_login;
-    EditText email_regist, password_regist, name_regist;
+    EditText email_regist, password_regist, name_regist,tanggal_lahir_regist, tempat_lahir_regist,bio_regist;
     private FirebaseAuth mAuth;
     private DatabaseReference ref;
     private FirebaseDatabase database;
@@ -41,11 +41,13 @@ public class RegisterActivity extends AppCompatActivity {
         name_regist = (EditText) findViewById(R.id.edtNamaRegis);
         email_regist= (EditText) findViewById(R.id.edtEmailRegis);
         password_regist = (EditText) findViewById(R.id.edtPasswordRegis);
+        tanggal_lahir_regist = (EditText) findViewById(R.id.edtTanggal);
+        tempat_lahir_regist = (EditText) findViewById(R.id.edtKota) ;
+        bio_regist = (EditText) findViewById(R.id.edtBio);
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
-
-        btn_regis.setOnClickListener(new View.OnClickListener() {
+       btn_regis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final String email = email_regist.getText().toString(), password = password_regist.getText().toString(), displayName = name_regist.getText().toString();
@@ -79,8 +81,12 @@ public class RegisterActivity extends AppCompatActivity {
 
                             // Get user id
                             String id= mAuth.getCurrentUser().getUid();
+                            String tanggal_lahir = tanggal_lahir_regist.getText().toString();
+                            String  tempat_lahir = tempat_lahir_regist.getText().toString();
+                            String bio = bio_regist.getText().toString();
 
-                            User user = new User( id,displayName,email,password,null,null,null,null);
+
+                            User user = new User( id,displayName,email,password,null,tanggal_lahir,tempat_lahir,bio);
 
                             // Add data to firebase
                             ref.child(id).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
