@@ -1,6 +1,5 @@
 package com.example.formoms_v2.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.formoms_v2.R;
-import com.example.formoms_v2.adapter.pojo.Memories;
+import com.example.formoms_v2.adapter.pojo.Album;
 
 import java.util.ArrayList;
 
 public class MemoriesAdapter extends RecyclerView.Adapter<MemoriesAdapter.ViewHolder> {
-    private ArrayList<Memories> dataList;
 
-    public MemoriesAdapter(ArrayList<Memories> dataList){
+    private ArrayList<Album> dataList;
+
+    public MemoriesAdapter(ArrayList<Album> dataList){
         this.dataList = dataList;
     }
 
@@ -32,12 +32,8 @@ public class MemoriesAdapter extends RecyclerView.Adapter<MemoriesAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull MemoriesAdapter.ViewHolder holder, int position) {
-        holder.ivPic1.setImageResource(dataList.get(position).getPic1());
-        holder.ivPic2.setImageResource(dataList.get(position).getPic2());
-        holder.ivPic3.setImageResource(dataList.get(position).getPic3());
-        holder.ivPic4.setImageResource(dataList.get(position).getPic4());
         holder.tvAlbumName.setText(dataList.get(position).getAlbumName());
-        holder.tvCreatedAt.setText("Dibuat pada tanggal"+dataList.get(position).getCreatedAt());
+        holder.tvCreatedAt.setText("Dibuat pada "+dataList.get(position).getCreatedAt());
     }
 
     @Override

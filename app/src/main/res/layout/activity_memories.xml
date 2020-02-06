@@ -40,16 +40,6 @@
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/nunito_extrabold"/>
 
-            <Button
-                android:layout_marginLeft="300dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:id="@+id/fab"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:backgroundTint="#FFFF"
-                android:background="@drawable/ic_add_circle_black_24dp" />
-
         </RelativeLayout>
 
         <RelativeLayout

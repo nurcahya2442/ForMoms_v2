@@ -1,4 +1,4 @@
-package com.example.formoms_v2.adapter.pojo;
+package com.example.formoms_v2.adapter;
 
 import android.content.Context;
 import android.view.GestureDetector;

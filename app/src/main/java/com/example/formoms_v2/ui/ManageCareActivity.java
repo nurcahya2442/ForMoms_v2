@@ -150,7 +150,7 @@ public class ManageCareActivity extends AppCompatActivity {
             progressDialog.setTitle("Sedang Upload...");
             progressDialog.show();
 
-            final StorageReference storageRef = storageReference.child(System.currentTimeMillis()+"jpg");
+            final StorageReference storageRef = storageReference.child("Care").child(System.currentTimeMillis()+"");
             uploadTask = storageRef.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @RequiresApi(api = Build.VERSION_CODES.N)
