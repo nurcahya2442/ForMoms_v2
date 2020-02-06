@@ -226,6 +226,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.menu_profile) {
             // Handle the camera action
+            mAuth = FirebaseAuth.getInstance();
+
             startActivity(new Intent(context, ProfileActivity.class));
         } else if (id == R.id.menu_memories) {
             startActivity(new Intent(context, AlbumActivity.class));
@@ -238,6 +240,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             mAuth.signOut();
             finish();
             startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+
 
         }
 
