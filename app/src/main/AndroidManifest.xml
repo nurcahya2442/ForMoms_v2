@@ -70,8 +70,6 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".ui.ManageAlbum"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ui.AlbumActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".ui.DetailProfileActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
