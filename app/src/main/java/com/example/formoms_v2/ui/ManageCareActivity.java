@@ -35,6 +35,7 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.UUID;
@@ -96,6 +97,12 @@ public class ManageCareActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void Insert(String url){
+        // Calendar
+        Calendar now = Calendar.getInstance();
+        int years = now.get(Calendar.YEAR);
+        int months = now.get(Calendar.MONTH);
+        int days = now.get(Calendar.DAY_OF_MONTH);
+
         // Get value to string
         String title = txtJudul.getText().toString();
         String desc = txtDesc.getText().toString();

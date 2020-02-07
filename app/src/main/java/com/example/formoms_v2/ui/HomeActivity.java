@@ -17,11 +17,12 @@ import android.widget.Toast;
 
 import com.example.formoms_v2.R;
 import com.example.formoms_v2.adapter.CareTipsAdapter;
+import com.example.formoms_v2.adapter.HomeMemoriesAdapter;
 import com.example.formoms_v2.adapter.RecentAdapter;
+import com.example.formoms_v2.adapter.RecyclerItemClickListener;
 import com.example.formoms_v2.adapter.pojo.Album;
 import com.example.formoms_v2.adapter.pojo.Care;
 import com.example.formoms_v2.adapter.pojo.RecentMemories;
-import com.example.formoms_v2.adapter.pojo.RecyclerItemClickListener;
 import com.example.formoms_v2.auth.LoginActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,6 +33,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -45,6 +47,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private RecyclerView recyclerViewCareTips;
     private CareTipsAdapter adapterCareTips;
 
+    private ArrayList<Album> dataMemories;
+    private RecyclerView recyclerViewMemories;
+    private HomeMemoriesAdapter adapterMemories;
+
     private TextView tvLihatDetailCare;
     private TextView tvLihatDetailMemories;
     private ImageView ivMenuBars;
@@ -52,7 +58,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     HomeActivity context;
     private FirebaseAuth mAuth;
-    DatabaseReference ref;
+    private DatabaseReference ref, refMemories;
     public FirebaseDatabase database;
 
     //Data Recycler View Dummy Recent View
@@ -135,7 +141,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
 
         //Manggil Recycler View Recent View
-
         recyclerView = (RecyclerView)findViewById(R.id.recyclerRecentMemories);
         listPhoto = addList();
         adapter = new RecentAdapter(this,listPhoto);
@@ -143,14 +148,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
 
         //Manggil Recycler View Care Tips
-
         recyclerViewCareTips = (RecyclerView)findViewById(R.id.recyclerCareTips);
         dataListTips = new ArrayList<>();
+
+        //Manggil Recycler View Memories
+        recyclerViewMemories = (RecyclerView) findViewById(R.id.recyclerMemories);
+        dataMemories = new ArrayList<>();
 
         eventListener();
 
         database = FirebaseDatabase.getInstance();
         ref = database.getReference("Care");
+        refMemories = database.getReference("Memories");
     }
 
     @Override
@@ -168,6 +177,26 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 recyclerViewCareTips.setAdapter(adapterCareTips);
                 recyclerViewCareTips.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
                 adapterCareTips.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+
+        refMemories.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                dataMemories.clear();
+                for (DataSnapshot value : dataSnapshot.getChildren()) {
+                    Album album = value.getValue(Album.class);
+                    dataMemories.add(album);
+                }
+                adapterMemories = new HomeMemoriesAdapter(dataMemories);
+                recyclerViewMemories.setAdapter(adapterMemories);
+                recyclerViewMemories.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+                adapterMemories.notifyDataSetChanged();
             }
 
             @Override
@@ -201,7 +230,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         tvLihatDetailMemories.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this,AlbumActivity.class));
+                startActivity(new Intent(HomeActivity.this,MemoriesActivity.class));
             }
         });
 
@@ -230,7 +259,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
             startActivity(new Intent(context, ProfileActivity.class));
         } else if (id == R.id.menu_memories) {
-            startActivity(new Intent(context, AlbumActivity.class));
+            startActivity(new Intent(context, MemoriesActivity.class));
         } else if (id == R.id.menu_care) {
             startActivity(new Intent(context, CareActivity.class));
         } else if (id == R.id.menu_chcekup) {
