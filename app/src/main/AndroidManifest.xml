@@ -64,6 +64,16 @@
             android:label="Add Care"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ui.MemoriesActivity"
+            android:label="Album"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ui.DetailMemoriesActivity"
+            android:label="Album"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".ui.ImunisasiActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".ui.ManageImunisasiActivity"

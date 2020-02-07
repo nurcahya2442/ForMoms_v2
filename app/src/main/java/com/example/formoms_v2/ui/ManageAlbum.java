@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.formoms_v2.R;
+import com.example.formoms_v2.adapter.pojo.Album;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -60,13 +61,13 @@ public class ManageAlbum extends AppCompatActivity {
                 }
             });
         }
-        initbtn(confirm, AlbumActivity.class,action);
+        initbtn(confirm, MemoriesActivity.class,action);
 
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent pindah = new Intent(ManageAlbum.this, AlbumActivity.class);
+                Intent pindah = new Intent(ManageAlbum.this, MemoriesActivity.class);
                 startActivity(pindah);
             }
         });

@@ -12,7 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.formoms_v2.R;
 import com.example.formoms_v2.adapter.pojo.Album;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class HomeMemoriesAdapter extends RecyclerView.Adapter<HomeMemoriesAdapter.ViewHolder> {
     private ArrayList<Album> dataList;
@@ -32,7 +35,7 @@ public class HomeMemoriesAdapter extends RecyclerView.Adapter<HomeMemoriesAdapte
     @Override
     public void onBindViewHolder(@NonNull HomeMemoriesAdapter.ViewHolder holder, int position) {
         holder.tvAlbumName.setText(dataList.get(position).getAlbumName());
-        holder.tvCreatedAt.setText("Dibuat pada "+dataList.get(position).getCreatedAt());
+        holder.tvCreatedAt.setText(calculateDate(position));
     }
 
     @Override
@@ -58,5 +61,49 @@ public class HomeMemoriesAdapter extends RecyclerView.Adapter<HomeMemoriesAdapte
             tvAlbumName = itemView.findViewById(R.id.tvAlbumName);
             tvCreatedAt = itemView.findViewById(R.id.tvCreatedAt);
         }
+    }
+
+    private String calculateDate(int position) {
+        // Get Created At
+        String sampleString = dataList.get(position).getCreatedAt();
+        String[] stringArray = sampleString.split("-");
+        int[] intArray = new int[stringArray.length];
+        for (int i = 0; i < stringArray.length; i++) {
+            String numberAsString = stringArray[i];
+            intArray[i] = Integer.parseInt(numberAsString);
+        }
+
+        // Get date now
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        String createdAt = sdf.format(new Date());
+        String[] stringArrayNow = createdAt.split("-");
+        int[] intArrayNow = new int[stringArrayNow.length];
+        for (int i = 0; i < stringArrayNow.length; i++) {
+            String numberAsString = stringArrayNow[i];
+            intArrayNow[i] = Integer.parseInt(numberAsString);
+        }
+
+        // Calculate
+        int year = intArrayNow[0] - intArray[0];
+        int month = intArrayNow[1] - intArray[1];
+        int day = intArrayNow[2] - intArray[2];
+
+        // Logic
+        String createdDate = "";
+        if(year <= 0){
+            if(month <= 0){
+                if(day <= 0){
+                    createdDate = "Hari ini";
+                }else if(day > 0){
+                    createdDate = "Dibuat "+day+" hari yang lalu";
+                }
+            }else if(month > 0){
+                createdDate = "Dibuat "+month+" bulan yang lalu";
+            }
+        }else if(year > 0){
+            createdDate = "Dibuat "+year+" tahun yang lalu";
+        }
+
+        return createdDate;
     }
 }
