@@ -159,7 +159,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         database = FirebaseDatabase.getInstance();
         ref = database.getReference("Care");
-        refMemories = database.getReference("Memories");
+        refMemories = database.getReference("Memories/Album");
     }
 
     @Override

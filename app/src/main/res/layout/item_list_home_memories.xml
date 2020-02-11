@@ -16,7 +16,6 @@
             android:id="@+id/ivBayiHoliday1"
             android:layout_width="@dimen/_60sdp"
             android:layout_height="@dimen/_60sdp"
-            android:layout_marginTop="@dimen/_10sdp"
             android:src="@drawable/bayi_1" />
 
         <ImageView
@@ -24,7 +23,6 @@
             android:layout_width="@dimen/_60sdp"
             android:layout_height="@dimen/_60sdp"
             android:layout_marginStart="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_10sdp"
             android:src="@drawable/bayi_2" />
 
         <ImageView
@@ -63,6 +61,6 @@
         android:fontFamily="@font/nunito"
         android:text="@string/tv_time2"
         android:textColor="#888888"
-        android:textSize="@dimen/_13ssp" />
+        android:textSize="@dimen/_11ssp" />
 
 </RelativeLayout>

@@ -74,6 +74,11 @@
             android:label="Album"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ui.PreviewUploadActivity"
+            android:label="Preview Upload"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".ui.ImunisasiActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".ui.ManageImunisasiActivity"

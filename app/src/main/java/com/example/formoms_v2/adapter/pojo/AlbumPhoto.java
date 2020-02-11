@@ -1,7 +1,14 @@
 package com.example.formoms_v2.adapter.pojo;
 
 public class AlbumPhoto {
-    String photoId, photoUrl, createdAt;
+    String photoId, photoUrl, albumId, createdAt;
+
+    public AlbumPhoto(String photoId, String photoUrl, String albumId, String createdAt) {
+        this.photoId = photoId;
+        this.photoUrl = photoUrl;
+        this.albumId = albumId;
+        this.createdAt = createdAt;
+    }
 
     public AlbumPhoto(){}
 
@@ -29,9 +36,11 @@ public class AlbumPhoto {
         this.createdAt = createdAt;
     }
 
-    public AlbumPhoto(String photoId, String photoUrl, String createdAt) {
-        this.photoId = photoId;
-        this.photoUrl = photoUrl;
-        this.createdAt = createdAt;
+    public String getAlbumId() {
+        return albumId;
+    }
+
+    public void setAlbumId(String albumId) {
+        this.albumId = albumId;
     }
 }

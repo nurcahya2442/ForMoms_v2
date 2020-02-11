@@ -59,7 +59,7 @@ public class MemoriesActivity extends AppCompatActivity {
 
         // Get a reference to our posts
         database = FirebaseDatabase.getInstance();
-        refMemories = database.getReference("Memories");
+        refMemories = database.getReference("Memories/Album");
     }
 
     @Override
