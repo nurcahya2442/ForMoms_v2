@@ -27,7 +27,7 @@
             android:background="@android:color/transparent">
 
             <ImageView
-                android:id="@+id/ivMenuBars"
+                android:id="@+id/ivMenuBack"
                 android:layout_width="@dimen/_29sdp"
                 android:layout_height="@dimen/_29sdp"
                 android:src="@drawable/ic_back"

@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.formoms_v2.R;
@@ -31,6 +32,7 @@ public class DetailProfileActivity extends AppCompatActivity {
     TextView btn_simpan;
     FirebaseDatabase db;
     FirebaseAuth mAuth;
+    ImageView ivMenuBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +50,14 @@ public class DetailProfileActivity extends AppCompatActivity {
                 Update();
                 Intent i= new Intent(DetailProfileActivity.this,ProfileActivity.class);
                 startActivity(i);
+            }
+        });
+        ivMenuBack = findViewById(R.id.ivMenuBack);
+        ivMenuBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent n = new Intent(DetailProfileActivity.this,ProfileActivity.class);
+                startActivity(n);
             }
         });
     }
