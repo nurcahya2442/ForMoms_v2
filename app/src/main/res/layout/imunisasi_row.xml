@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
 
         android:layout_width="match_parent"
         android:background="#00000000"
-        app:cardCornerRadius="5dp"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="10dp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_height="wrap_content">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="200dp"
+            android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/relativeLeft"
+            android:layout_width="@dimen/_150sdp"
             android:orientation="vertical"
-            android:layout_height="90dp"
+            android:layout_height="@dimen/_80sdp"
             android:background="@drawable/view">
 
 
@@ -29,44 +30,52 @@
                 android:id="@+id/judul"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="25dp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_16sdp"
                 android:text="TEST"
                 android:textColor="#ffff"
-                android:textSize="20sp">
+                android:textSize="@dimen/_18ssp"
+                android:fontFamily="@font/nunito">
 
             </TextView>
 
             <TextView
                 android:id="@+id/txt_tanggal"
-                android:layout_width="wrap_content"
-                android:layout_height="25dp"
-                android:layout_marginHorizontal="20dp"
-                android:gravity="center"
-                android:textAlignment="center"
-                android:textColor="#ffff"
-                android:textSize="16sp"
-                android:background="@drawable/view2"/>
-        </LinearLayout>
+                android:layout_width="@dimen/_75sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:textSize="@dimen/_13ssp"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_below="@id/judul"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/bg_shape_full"
+                android:textColor="#fff"
+                android:fontFamily="@font/nunito_bold"
+                android:gravity="center"/>
+        </RelativeLayout>
 
-            <LinearLayout
-                android:layout_width="200dp"
-                android:layout_height="90dp"
-                android:orientation="vertical"
-                android:background="@drawable/view">
+            <RelativeLayout
+                android:id="@+id/relativeRight"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:background="@drawable/view"
+                android:layout_toRightOf="@id/relativeLeft">
 
                 <TextView
                     android:id="@+id/detail"
-                    android:layout_width="201dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Semangat"
-                    android:textSize="18sp">
+                    android:textSize="@dimen/_16ssp"
+                    android:fontFamily="@font/nunito"
+                    android:textColor="#fff"
+                    android:layout_marginTop="@dimen/_10sdp">
 
                 </TextView>
-            </LinearLayout>
-        </LinearLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 
 
-</LinearLayout>
+</RelativeLayout>

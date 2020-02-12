@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +30,9 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ManageAlbum extends AppCompatActivity {
     TextView act;
     EditText jdl,desc;
-    Button confirm,delete,back;
+    Button delete;
+    ImageView back;
+    TextView confirm;
     String id = "";
 
     DatabaseReference db;
@@ -51,7 +54,7 @@ public class ManageAlbum extends AppCompatActivity {
         id = pindah.getStringExtra("id");
         act.setText(action);
 
-        if(!id.isEmpty()){
+        if(id != null){
             initUpdate(id);
             delete.setEnabled(true);
             delete.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +77,7 @@ public class ManageAlbum extends AppCompatActivity {
 
     }
 
-    private void initbtn(Button btn,final Class tanclass,final String act){
+    private void initbtn(TextView btn,final Class tanclass,final String act){
         confirm.setText(act);
         btn.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)

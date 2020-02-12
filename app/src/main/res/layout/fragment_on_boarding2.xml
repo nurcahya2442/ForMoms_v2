@@ -13,7 +13,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="For Mom Menyediakan Fitur Fitur Untuk Tumbuh Kembang Bayi"
+            android:text=" Amati Masa Masa Pertumbuhan dan Perkembangan Si Kecil "
             android:layout_marginTop="@dimen/_380sdp"
             android:fontFamily="@font/nunito_extrabold"
             android:textColor="#fff"

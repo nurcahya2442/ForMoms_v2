@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +28,9 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ManageImunisasiActivity extends AppCompatActivity {
     TextView act;
     EditText jdl,tgl;
-    Button confirm,delete,back;
+    Button delete;
+    TextView confirm;
+    ImageView ivMenuBack;
     String id = "";
     private SimpleDateFormat dateFormatter;
     DatabaseReference db;
@@ -43,7 +46,7 @@ public class ManageImunisasiActivity extends AppCompatActivity {
         tgl = findViewById(R.id.edt_tgl);
         confirm = findViewById(R.id.btn_confirm);
         delete = findViewById(R.id.btn_delete);
-        back = findViewById(R.id.btn_back);
+        ivMenuBack = findViewById(R.id.ivMenuBack);
 
         Intent pindah = getIntent();
         String action = pindah.getStringExtra("action");
@@ -62,7 +65,7 @@ public class ManageImunisasiActivity extends AppCompatActivity {
         initbtn(confirm, ImunisasiActivity.class,action);
 
 
-        back.setOnClickListener(new View.OnClickListener() {
+        ivMenuBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent pindah = new Intent(ManageImunisasiActivity.this, ImunisasiActivity.class);
@@ -79,7 +82,7 @@ public class ManageImunisasiActivity extends AppCompatActivity {
 
     }
 
-    private void initbtn(Button btn,final Class tanclass,final String act){
+    private void initbtn(TextView btn,final Class tanclass,final String act){
         confirm.setText(act);
         btn.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)

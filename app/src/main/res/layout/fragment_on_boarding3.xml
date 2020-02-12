@@ -7,7 +7,7 @@
     android:background="#0ABDE3">
 
     <ImageView
-        android:layout_width= "match_parent"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/onboard3_revphone" />
 
@@ -16,11 +16,14 @@
         android:id="@+id/tvOnboard3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mulai Aplikasi "
-        android:textSize="@dimen/_25ssp"
+        android:text="For Mom Menyediakan Fitur Fitur Untuk Tumbuh Kembang Bayi"
+        android:textSize="@dimen/_20ssp"
         android:textColor="#fff"
         android:fontFamily="@font/nunito_extrabold"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_450sdp"/>
+        android:layout_marginTop="@dimen/_450sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:gravity="center"/>
 
 </RelativeLayout>

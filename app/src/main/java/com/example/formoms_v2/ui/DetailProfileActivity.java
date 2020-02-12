@@ -6,16 +6,20 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapRegionDecoder;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -40,8 +44,9 @@ public class DetailProfileActivity extends AppCompatActivity {
     TextView btn_simpan;
     FirebaseDatabase db;
     FirebaseAuth mAuth;
+    ImageView ivMenuBack;
     ImageView btnIvCamera;
-    ImageView btnIvCameraRounded;
+    ImageView btnIvCameraRounded, img_profpict;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,7 @@ public class DetailProfileActivity extends AppCompatActivity {
         edtBio = (EditText)findViewById(R.id.edtBio_profile);
         btnIvCamera = (ImageView)findViewById(R.id.ivCamera);
         btnIvCameraRounded = (ImageView)findViewById(R.id.ivRoundedCamera);
+        img_profpict = findViewById(R.id.ivImageProfile);
 
         btnIvCamera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +68,22 @@ public class DetailProfileActivity extends AppCompatActivity {
                 intent.putExtra(ImageSelectActivity.FLAG_CAMERA, true);
                 intent.putExtra(ImageSelectActivity.FLAG_GALLERY, true);
                 startActivityForResult(intent, 1213);
-            }
+            };
+
+
+
+
+        });
+        img_profpict.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ImageSelectActivity.class);
+                intent.putExtra(ImageSelectActivity.FLAG_COMPRESS, true);
+                intent.putExtra(ImageSelectActivity.FLAG_CAMERA, true);
+                intent.putExtra(ImageSelectActivity.FLAG_GALLERY, true);
+                startActivityForResult(intent, 1213);
+            };
+
 
 
         });
@@ -78,6 +99,14 @@ public class DetailProfileActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        ivMenuBack = findViewById(R.id.ivMenuBack);
+        ivMenuBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent n = new Intent(DetailProfileActivity.this,ProfileActivity.class);
+                startActivity(n);
+            }
+        });
     }
 
     @Override
@@ -86,7 +115,7 @@ public class DetailProfileActivity extends AppCompatActivity {
         if(requestCode == 1213 && resultCode == Activity.RESULT_OK){
             String filePath = data.getStringExtra(ImageSelectActivity.RESULT_FILE_PATH);
             Bitmap selectedImage = BitmapFactory.decodeFile(filePath);
-            btnIvCamera.setImageBitmap(selectedImage);
+            img_profpict.setImageBitmap(selectedImage);
         }
     }
 

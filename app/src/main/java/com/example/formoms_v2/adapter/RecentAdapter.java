@@ -9,7 +9,9 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.formoms_v2.R;
+import com.example.formoms_v2.adapter.pojo.AlbumPhoto;
 import com.example.formoms_v2.adapter.pojo.RecentMemories;
 
 import java.util.ArrayList;
@@ -18,9 +20,10 @@ public class RecentAdapter extends RecyclerView.Adapter<RecentAdapter.ViewHolder
 
     public LayoutInflater inflater;
     private ArrayList<RecentMemories> imageArrayListRecent;
+    private Context context;
 
-    public RecentAdapter(Context ctx, ArrayList<RecentMemories> imageArrayListRecent){
-         inflater = LayoutInflater.from(ctx);
+    public RecentAdapter(ArrayList<RecentMemories> imageArrayListRecent, Context context){
+         this.context = context;
          this.imageArrayListRecent = imageArrayListRecent;
     }
 
@@ -34,7 +37,7 @@ public class RecentAdapter extends RecyclerView.Adapter<RecentAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull RecentAdapter.ViewHolder holder, int position) {
-        holder.fotoBayi.setImageResource(imageArrayListRecent.get(position).getBabyPhoto());
+        Glide.with(context).load(imageArrayListRecent.get(position).getPhotoUrl()).into(holder.fotoBayi);
 
     }
 

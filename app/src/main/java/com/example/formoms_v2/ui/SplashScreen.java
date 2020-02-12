@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import com.daimajia.androidanimations.library.Techniques;
 import com.example.formoms_v2.R;
 import com.example.formoms_v2.auth.LoginActivity;
+import com.example.formoms_v2.intro.IntroActivity;
 import com.example.formoms_v2.ui.HomeActivity;
 import com.viksaa.sssplash.lib.activity.AwesomeSplash;
 import com.viksaa.sssplash.lib.cnst.Flags;
@@ -65,7 +66,7 @@ public class SplashScreen extends AwesomeSplash {
 
     @Override
     public void animationsFinished() {
-        startActivity(new Intent(SplashScreen.this, LoginActivity.class));
+        startActivity(new Intent(SplashScreen.this, IntroActivity.class));
 
     }
 }

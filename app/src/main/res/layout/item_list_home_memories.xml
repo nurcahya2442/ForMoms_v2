@@ -16,21 +16,24 @@
             android:id="@+id/ivBayiHoliday1"
             android:layout_width="@dimen/_60sdp"
             android:layout_height="@dimen/_60sdp"
-            android:src="@drawable/bayi_1" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_choose_picture" />
 
         <ImageView
             android:id="@+id/ivBayiHoliday2"
             android:layout_width="@dimen/_60sdp"
             android:layout_height="@dimen/_60sdp"
             android:layout_marginStart="@dimen/_5sdp"
-            android:src="@drawable/bayi_2" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_choose_picture" />
 
         <ImageView
             android:id="@+id/ivBayiHoliday3"
             android:layout_width="@dimen/_60sdp"
             android:layout_height="@dimen/_60sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:src="@drawable/bayi_3" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_choose_picture" />
 
         <ImageView
             android:id="@+id/ivBayiHoliday4"
@@ -38,7 +41,8 @@
             android:layout_height="@dimen/_60sdp"
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:src="@drawable/bayi_4" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_choose_picture" />
 
     </GridLayout>
 
