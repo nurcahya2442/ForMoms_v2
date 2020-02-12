@@ -10,9 +10,11 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +35,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -66,6 +69,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public FirebaseDatabase database;
 
     private String[] name = new String[] {"Angelica Witson", "Pretty Jonson","Angelica Witson", "Pretty Jonson","Angelica Witson", "Pretty Jonson","Angelica Witson", "Pretty Jonson","Angelica Witson", "Pretty Jonson"};
+    MaterialSearchView ivSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +82,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         tvLihatDetailMemories = (TextView) findViewById(R.id.tvLihatDetailMemories);
         ivMenuBars = (ImageView) findViewById(R.id.ivMenuBars);
 
+//        ivSearch = findViewById(R.id.ivSearch);
         navigationSidebar = (NavigationView)findViewById(R.id.navigationBar);
         navigationSidebar.setNavigationItemSelectedListener(this);
 
@@ -117,6 +122,16 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         refMemories = database.getReference("Memories/Album");
         refRecent = database.getReference("Memories/Photo");
         refPhoto = database.getReference("Memories").child("Photo");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_search, menu);
+
+        MenuItem item = menu.findItem(R.id.actioin_search);
+        ivSearch.setMenuItem(item);
+
+        return true;
     }
 
     @Override

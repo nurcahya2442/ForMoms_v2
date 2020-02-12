@@ -51,7 +51,7 @@
             android:id="@+id/tvNama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/nama_profile"
+            android:text="Hai! User"
             android:textColor="#FFFFFFFF"
             android:textSize="@dimen/_20ssp"
             android:layout_marginStart="@dimen/_20sdp"
@@ -178,146 +178,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/relative4">
 
-        <GridLayout
-            android:id="@+id/gridLayoutParent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:columnCount="2">
 
-            <GridLayout
-                android:id="@+id/gridLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:rowCount="2"
-                android:columnCount="2">
-
-                <ImageView
-                    android:id="@+id/ivBayi1"
-                    android:layout_width="@dimen/_60sdp"
-                    android:layout_height="@dimen/_60sdp"
-                    android:src="@drawable/bayi_1"
-                    android:layout_marginStart="@dimen/_16sdp"
-                    android:layout_marginTop="@dimen/_10sdp"/>
-
-                <ImageView
-                    android:id="@+id/ivBayi2"
-                    android:layout_width="@dimen/_60sdp"
-                    android:layout_height="@dimen/_60sdp"
-                    android:src="@drawable/bayi_2"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginStart="@dimen/_5sdp"/>
-
-                <ImageView
-                    android:id="@+id/ivBayi3"
-                    android:layout_width="@dimen/_60sdp"
-                    android:layout_height="@dimen/_60sdp"
-                    android:src="@drawable/bayi_3"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginStart="@dimen/_16sdp"/>
-
-                <ImageView
-                    android:id="@+id/ivBayi4"
-                    android:layout_width="@dimen/_60sdp"
-                    android:layout_height="@dimen/_60sdp"
-                    android:src="@drawable/bayi_4"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginStart="@dimen/_5sdp"/>
-
-            </GridLayout>
-
-
-
-            <GridLayout
-                android:id="@+id/gridLayout2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:rowCount="2"
-                android:columnCount="2"
-                android:layout_marginStart="@dimen/_10sdp">
-
-                <ImageView
-                    android:id="@+id/ivBayiHoliday1"
-                    android:layout_width="@dimen/_60sdp"
-                    android:layout_height="@dimen/_60sdp"
-                    android:src="@drawable/bayi_1"
-                    android:layout_marginStart="@dimen/_16sdp"
-                    android:layout_marginTop="@dimen/_10sdp"/>
-
-                <ImageView
-                    android:id="@+id/ivBayiHoliday2"
-                    android:layout_width="@dimen/_60sdp"
-                    android:layout_height="@dimen/_60sdp"
-                    android:src="@drawable/bayi_2"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginStart="@dimen/_5sdp"/>
-
-                <ImageView
-                    android:id="@+id/ivBayiHoliday3"
-                    android:layout_width="@dimen/_60sdp"
-                    android:layout_height="@dimen/_60sdp"
-                    android:src="@drawable/bayi_3"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginStart="@dimen/_16sdp"/>
-
-                <ImageView
-                    android:id="@+id/ivBayiHoliday4"
-                    android:layout_width="@dimen/_60sdp"
-                    android:layout_height="@dimen/_60sdp"
-                    android:src="@drawable/bayi_4"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginStart="@dimen/_5sdp"/>
-
-            </GridLayout>
-
-
-        </GridLayout>
-
-        <TextView
-            android:id="@+id/tvMyFav"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tv_my_favorite"
-            android:layout_marginStart="@dimen/_16sdp"
-            android:textSize="@dimen/_12ssp"
-            android:textColor="@android:color/black"
-            android:layout_below="@id/gridLayoutParent"
-            android:layout_marginTop="@dimen/_5sdp"/>
-
-        <TextView
-            android:id="@+id/tvTimeFav"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tv_time2"
-            android:layout_marginStart="@dimen/_16sdp"
-            android:layout_below="@id/tvMyFav"
-            android:textSize="@dimen/_8ssp"
-            android:textColor="#888888"/>
-
-        <TextView
-            android:id="@+id/tvHoliday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tvHoliday"
-            android:textSize="@dimen/_12ssp"
-            android:textColor="@android:color/black"
-            android:layout_below="@id/gridLayoutParent"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_toRightOf="@id/tvMyFav"
-            android:layout_marginStart="@dimen/_90sdp"/>
-
-        <TextView
-            android:id="@+id/tvTimeHoliday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tv_time"
-            android:layout_marginStart="@dimen/_75sdp"
-            android:layout_below="@id/tvMyFav"
-            android:textSize="@dimen/_8ssp"
-            android:textColor="#888888"
-            android:layout_toRightOf="@id/tvTimeFav" />
-
-
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerMemories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_16sdp"/>
 
     </RelativeLayout>
 

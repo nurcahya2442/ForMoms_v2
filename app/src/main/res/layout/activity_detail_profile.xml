@@ -68,6 +68,7 @@
 
 
                     <ImageView
+                        android:id="@+id/ivRoundedCamera"
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
                         android:background="@drawable/style_photo_circle"

@@ -10,6 +10,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,6 +30,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 
+import org.w3c.dom.Text;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -37,7 +40,7 @@ import java.util.Locale;
 public class PreviewUploadActivity extends AppCompatActivity {
 
     ImageView ivPreview;
-    Button btnCheck;
+    TextView btnCheck;
     Bitmap bitmap;
 
     //Firebase Storage
@@ -81,7 +84,7 @@ public class PreviewUploadActivity extends AppCompatActivity {
     private void initComponent() {
         // Get view by id
         ivPreview = (ImageView) findViewById(R.id.ivPreview);
-        btnCheck = (Button) findViewById(R.id.btnCheck);
+        btnCheck = (TextView) findViewById(R.id.btnCheck);
 
         // Set View
         ivPreview.setImageBitmap(bitmap);

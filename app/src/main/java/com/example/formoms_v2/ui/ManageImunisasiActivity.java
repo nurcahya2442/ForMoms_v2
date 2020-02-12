@@ -28,7 +28,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ManageImunisasiActivity extends AppCompatActivity {
     TextView act;
     EditText jdl,tgl;
-    Button confirm,delete;
+    Button delete;
+    TextView confirm;
     ImageView ivMenuBack;
     String id = "";
     private SimpleDateFormat dateFormatter;
@@ -81,7 +82,7 @@ public class ManageImunisasiActivity extends AppCompatActivity {
 
     }
 
-    private void initbtn(Button btn,final Class tanclass,final String act){
+    private void initbtn(TextView btn,final Class tanclass,final String act){
         confirm.setText(act);
         btn.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)

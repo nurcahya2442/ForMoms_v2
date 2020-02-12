@@ -1,100 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ManageData">
+    tools:context=".ui.ManageAlbum">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <RelativeLayout
+        android:id="@+id/relative1"
         android:layout_width="match_parent"
-        android:background="#0ABDE3"
-        android:layout_height="59dp">
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <Button
-                android:id="@+id/btn_back"
-                android:background="@drawable/ic_arrow_back_black_24dp"
-                android:layout_width="33dp"
-                android:layout_height="33dp">
+        android:layout_height="@dimen/_70sdp"
+        android:background="#0ABDE3">
 
-            </Button>
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="@dimen/_29sdp"
+            android:layout_height="@dimen/_29sdp"
+            android:src="@drawable/ic_back"
+            android:paddingTop="@dimen/_9sdp"
+            android:paddingLeft="@dimen/_9sdp"
+            android:paddingRight="@dimen/_9sdp"
+            android:paddingBottom="@dimen/_9sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/bg_shape_menu"/>
 
             <TextView
                 android:id="@+id/action_txt"
-                android:layout_marginLeft="50dp"
+                android:layout_centerHorizontal="true"
                 android:text="Ubah"
-                android:textSize="22sp"
+                android:textSize="@dimen/_22ssp"
                 android:textColor="#FFFFFF"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_extrabold"
+                android:layout_marginTop="@dimen/_16sdp">
             </TextView>
 
             <Button
                 android:enabled="false"
                 android:id="@+id/btn_delete"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginLeft="230dp"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+               android:layout_marginTop="@dimen/_18sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/_20sdp"
                 android:background="@drawable/ic_delete_black_24dp">
 
             </Button>
 
-        </androidx.appcompat.widget.Toolbar>
-    </com.google.android.material.appbar.AppBarLayout>
+    </RelativeLayout>
 
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@id/relative2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="20dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:id="@+id/relative3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_shape_corner"
+            android:layout_marginTop="@dimen/_58sdp">
+
         <TextView
+            android:id="@+id/labelJudulAlbum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Judul">
+            android:text="Judul"
+            android:textSize="@dimen/_14ssp"
+            android:fontFamily="@font/nunito_light"
+            android:textColor="#4EBDDA"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_20sdp">
         </TextView>
+
         <EditText
             android:id="@+id/edt_judul"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Masukan Judul"
-            android:backgroundTint="#1E90FF"
-            android:textSize="18sp">
+            android:backgroundTint="#0ABDE3"
+            android:textSize="@dimen/_15ssp"
+            android:layout_below="@id/labelJudulAlbum"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:fontFamily="@font/nunito">
         </EditText>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Isi"
-            android:textSize="15sp">
+            <TextView
+                android:id="@+id/labelIsiAlbum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Isi"
+                android:textSize="@dimen/_14ssp"
+                android:fontFamily="@font/nunito_light"
+                android:textColor="#4EBDDA"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_below="@id/edt_judul">
+            </TextView>
 
-        </TextView>
         <EditText
             android:backgroundTint="#0ABDE3"
             android:id="@+id/edt_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Isi "
-            android:textSize="18sp">
+            android:hint="Masukan Isi "
+            android:textSize="@dimen/_15ssp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_below="@id/labelIsiAlbum"
+            android:fontFamily="@font/nunito">
 
         </EditText>
 
+            <TextView
+                android:id="@+id/btn_confirm"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="@dimen/_42sdp"
+                android:text="Konfirmasi"
+                android:textSize="@dimen/_18ssp"
+                android:layout_below="@id/edt_detail"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:fontFamily="@font/nunito_extrabold"
+                android:textColor="#fff"
+                android:background="@drawable/bg_shape_full"
+                android:gravity="center"/>
 
-        <Button
-            android:id="@+id/btn_confirm"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="70dp"
-            android:layout_marginTop="59dp"
-            android:background="#1E90FF"
-            android:text="Confirm"
-            android:textColor="#FFFFFF">
-
-        </Button>
-    </LinearLayout>
-
-
-</LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -52,7 +53,7 @@ public class ManageCareActivity extends AppCompatActivity {
     StorageTask uploadTask;
 
     private EditText txtJudul, txtDesc;
-    private Button btnSimpan;
+    private TextView btnSimpan;
     private ImageView ivChange;
 
     private Uri filePath;
@@ -76,7 +77,7 @@ public class ManageCareActivity extends AppCompatActivity {
     private void initComponent() {
         txtJudul = (EditText) findViewById(R.id.txt_title);
         txtDesc = (EditText) findViewById(R.id.txt_desc);
-        btnSimpan = (Button) findViewById(R.id.btn_simpan);
+        btnSimpan = (TextView) findViewById(R.id.btn_simpan);
         ivChange = (ImageView) findViewById(R.id.iv_change);
     }
 
