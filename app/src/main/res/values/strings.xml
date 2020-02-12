@@ -24,4 +24,7 @@ Namun jika memungkinkan, ASI sebaiknya masih diberikan selagi bayi diperkenalkan
     <string name="tv_hobby2">Musik</string>
     <string name="tv_hobby3">Game</string>
     <string name="title_splash">For Mom\'s</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

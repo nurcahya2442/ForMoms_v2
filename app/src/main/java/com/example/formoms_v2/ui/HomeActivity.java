@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -78,6 +79,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
 
     };
+
+    boolean doubleBackToExitPressedOnce = false;
 
     //Data Recycler View Dummy Care Tips
     private int[] foodPic = new int[]{
@@ -277,4 +280,5 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-}
+
+ }

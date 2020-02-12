@@ -14,6 +14,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".intro.IntroActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".ui.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,67 +33,59 @@
             android:name=".auth.LoginActivity"
             android:label="Login"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.ProfileActivity"
             android:label="Profile"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".auth.RegisterActivity"
             android:label="Register"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.HomeActivity"
             android:label="Home"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.CareActivity"
             android:label="Care"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.MemoriesActivity"
+            android:label="Memories"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.SidebarActivity"
             android:label="SideBar"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.DetailCareActivity"
             android:label="Detail Care"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ui.DetailProfileActivity"
+            android:label="Detail Profile"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ui.ImunisasiActivity"
+            android:label="Imunisasi"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.ManageCareActivity"
             android:label="Add Care"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".ui.MemoriesActivity"
-            android:label="Album"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".ui.DetailMemoriesActivity"
-            android:label="Album"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".ui.PreviewUploadActivity"
-            android:label="Preview Upload"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ui.ImunisasiActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ui.ManageImunisasiActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ui.ManageAlbum"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ui.DetailProfileActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
