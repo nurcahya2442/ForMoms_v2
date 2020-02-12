@@ -3,18 +3,23 @@
 
 
     <item android:id="@+id/menu_profile"
-        android:title="Profile" />
+        android:title="Profile"
+        android:icon="@drawable/ic_account_circle_black_24dp"/>
 
     <item android:id="@+id/menu_memories"
-        android:title="Memories" />
+        android:title="Memories"
+        android:icon="@drawable/ic_photo_library_black_24dp"/>
 
     <item android:id="@+id/menu_care"
-        android:title="Care"/>
+        android:title="Care"
+        android:icon="@drawable/ic_care"/>
 
     <item android:id="@+id/menu_chcekup"
-        android:title="Imunisasi">
+        android:title="Imunisasi"
+        android:icon="@drawable/ic_checkup">
     </item>
 
     <item android:id="@+id/menu_Logout"
-        android:title="Logout"/>
+        android:title="Logout"
+        android:icon="@drawable/ic_out_black_24dp"/>
 </menu>
