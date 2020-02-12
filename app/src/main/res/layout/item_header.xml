@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_80sdp"
-        android:text="@string/nama_profile"
+        android:text="Hai ! User"
         android:textColor="#FFFFFFFF"
         android:textSize="@dimen/_20ssp"
         android:fontFamily="@font/nunito_extrabold" />

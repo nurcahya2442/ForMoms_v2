@@ -6,6 +6,11 @@
     tools:context=".intro.onBoarding3"
     android:background="#0ABDE3">
 
+    <ImageView
+        android:layout_width= "match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/onboard3_revphone" />
+
 
     <TextView
         android:id="@+id/tvOnboard3"
@@ -16,6 +21,6 @@
         android:textColor="#fff"
         android:fontFamily="@font/nunito_extrabold"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_200sdp"/>
+        android:layout_marginTop="@dimen/_450sdp"/>
 
 </RelativeLayout>

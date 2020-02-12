@@ -1,16 +1,22 @@
 package com.example.formoms_v2.ui;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.BitmapRegionDecoder;
 import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.formoms_v2.R;
@@ -22,15 +28,21 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import in.mayanknagwanshi.imagepicker.ImageSelectActivity;
 
 import java.util.Date;
 import java.util.Locale;
+
+import in.mayanknagwanshi.imagepicker.ImageSelectActivity;
 
 public class DetailProfileActivity extends AppCompatActivity {
     EditText edtNama,edtTanggal,edtTempat,edtBio;
     TextView btn_simpan;
     FirebaseDatabase db;
     FirebaseAuth mAuth;
+    ImageView btnIvCamera;
+    ImageView btnIvCameraRounded;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +51,22 @@ public class DetailProfileActivity extends AppCompatActivity {
         edtTanggal=(EditText)findViewById(R.id.edtTanggal_profile);
         edtTempat = (EditText)findViewById(R.id.edtCountry_profile);
         edtBio = (EditText)findViewById(R.id.edtBio_profile);
+        btnIvCamera = (ImageView)findViewById(R.id.ivCamera);
+        btnIvCameraRounded = (ImageView)findViewById(R.id.ivRoundedCamera);
+
+        btnIvCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ImageSelectActivity.class);
+                intent.putExtra(ImageSelectActivity.FLAG_COMPRESS, true);
+                intent.putExtra(ImageSelectActivity.FLAG_CAMERA, true);
+                intent.putExtra(ImageSelectActivity.FLAG_GALLERY, true);
+                startActivityForResult(intent, 1213);
+            }
+
+
+        });
+
         initUpdate();
         btn_simpan= (TextView)findViewById(R.id.btnSimpanProfile);
         btn_simpan.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +79,17 @@ public class DetailProfileActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1213 && resultCode == Activity.RESULT_OK){
+            String filePath = data.getStringExtra(ImageSelectActivity.RESULT_FILE_PATH);
+            Bitmap selectedImage = BitmapFactory.decodeFile(filePath);
+            btnIvCamera.setImageBitmap(selectedImage);
+        }
+    }
+
     private void initUpdate(){
         mAuth = FirebaseAuth.getInstance();
         final FirebaseUser usera = mAuth.getCurrentUser();

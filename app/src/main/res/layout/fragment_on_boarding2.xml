@@ -7,7 +7,7 @@
     android:background="#0ABDE3">
 
     <ImageView
-        android:layout_width="match_parent"
+        android:layout_width= "match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/babyonboard2_revisi" />
         <TextView
