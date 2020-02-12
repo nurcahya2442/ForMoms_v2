@@ -31,7 +31,7 @@ public class AlbumPhotoAdapter extends RecyclerView.Adapter<AlbumPhotoAdapter.Vi
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_recent_memories, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_album_photo, parent, false);
         AlbumPhotoAdapter.ViewHolder holder = new AlbumPhotoAdapter.ViewHolder(view);
         return holder;
     }

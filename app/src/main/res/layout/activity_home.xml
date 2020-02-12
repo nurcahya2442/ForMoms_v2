@@ -93,7 +93,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerRecentMemories"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_53sdp"
             android:layout_below="@id/tvRecentView"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginStart="@dimen/_16sdp"

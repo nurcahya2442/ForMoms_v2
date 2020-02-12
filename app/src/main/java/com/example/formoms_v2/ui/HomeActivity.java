@@ -6,10 +6,10 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -22,6 +22,7 @@ import com.example.formoms_v2.adapter.HomeMemoriesAdapter;
 import com.example.formoms_v2.adapter.RecentAdapter;
 import com.example.formoms_v2.adapter.RecyclerItemClickListener;
 import com.example.formoms_v2.adapter.pojo.Album;
+import com.example.formoms_v2.adapter.pojo.AlbumPhoto;
 import com.example.formoms_v2.adapter.pojo.Care;
 import com.example.formoms_v2.adapter.pojo.RecentMemories;
 import com.example.formoms_v2.auth.LoginActivity;
@@ -40,7 +41,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     public static final String CARE_ID = "CARE_ID", CARE_TITLE = "CARE_TITLE", CARE_CONTENT = "CARE_CONTENT", CARE_AUTHOR = "CARE_AUTHOR";
 
-    private ArrayList<RecentMemories> listPhoto;
+    private ArrayList<AlbumPhoto> photoList;
+
+    private ArrayList<RecentMemories> dataListPhoto;
     private RecyclerView recyclerView;
     private RecentAdapter adapter;
 
@@ -59,58 +62,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     HomeActivity context;
     private FirebaseAuth mAuth;
-    private DatabaseReference ref, refMemories;
+    private DatabaseReference ref, refMemories, refRecent, refPhoto;
     public FirebaseDatabase database;
-
-    //Data Recycler View Dummy Recent View
-
-
-    private int[] fotoBayi = new int[]{
-            R.drawable.bayi_1,
-            R.drawable.bayi_2,
-            R.drawable.bayi_3,
-            R.drawable.bayi_4,
-            R.drawable.bayi_1,
-            R.drawable.bayi_2,
-            R.drawable.bayi_3,
-            R.drawable.bayi_4,
-            R.drawable.bayi_1,
-            R.drawable.bayi_2
-
-
-    };
-
-    boolean doubleBackToExitPressedOnce = false;
-
-    //Data Recycler View Dummy Care Tips
-    private int[] foodPic = new int[]{
-
-            R.drawable.food,
-            R.drawable.food,
-            R.drawable.food,
-            R.drawable.food,
-            R.drawable.food,
-            R.drawable.food,
-            R.drawable.food,
-            R.drawable.food,
-            R.drawable.food,
-            R.drawable.food
-    };
-
-    private String[] judulTips = new String[] {"Baby Food Recommendation","How To Take Care A Baby","Baby Food Recommendation", "How To Take Care A Baby","Baby Food Recommendation", "How To Take Care A Baby","Baby Food Recommendation", "How To Take Care A Baby","Baby Food Recommendation", "How To Take Care A Baby"};
-
-    private int[] peoplePhoto = new int[]{
-            R.drawable.people,
-            R.drawable.people,
-            R.drawable.people,
-            R.drawable.people,
-            R.drawable.people,
-            R.drawable.people,
-            R.drawable.people,
-            R.drawable.people,
-            R.drawable.people,
-            R.drawable.people
-    };
 
     private String[] name = new String[] {"Angelica Witson", "Pretty Jonson","Angelica Witson", "Pretty Jonson","Angelica Witson", "Pretty Jonson","Angelica Witson", "Pretty Jonson","Angelica Witson", "Pretty Jonson"};
 
@@ -143,12 +96,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         });
 
 
-        //Manggil Recycler View Recent View
-        recyclerView = (RecyclerView)findViewById(R.id.recyclerRecentMemories);
-        listPhoto = addList();
-        adapter = new RecentAdapter(this,listPhoto);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+        //Manggil Recycler View Recent
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerRecentMemories);
+        dataListPhoto = new ArrayList<>();
 
         //Manggil Recycler View Care Tips
         recyclerViewCareTips = (RecyclerView)findViewById(R.id.recyclerCareTips);
@@ -158,11 +108,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         recyclerViewMemories = (RecyclerView) findViewById(R.id.recyclerMemories);
         dataMemories = new ArrayList<>();
 
+        photoList = new ArrayList<>();
+
         eventListener();
 
         database = FirebaseDatabase.getInstance();
         ref = database.getReference("Care");
         refMemories = database.getReference("Memories/Album");
+        refRecent = database.getReference("Memories/Photo");
+        refPhoto = database.getReference("Memories").child("Photo");
     }
 
     @Override
@@ -195,11 +149,26 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 for (DataSnapshot value : dataSnapshot.getChildren()) {
                     Album album = value.getValue(Album.class);
                     dataMemories.add(album);
+                    refPhoto.orderByChild("albumId").equalTo(album.getAlbumId()).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            photoList.clear();
+                            for (DataSnapshot photoValue : dataSnapshot.getChildren()){
+                                AlbumPhoto albumPhoto = photoValue.getValue(AlbumPhoto.class);
+                                photoList.add(albumPhoto);
+                            }
+                            adapterMemories = new HomeMemoriesAdapter(HomeActivity.this, dataMemories, photoList);
+                            recyclerViewMemories.setAdapter(adapterMemories);
+                            recyclerViewMemories.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+                            adapterMemories.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
                 }
-                adapterMemories = new HomeMemoriesAdapter(dataMemories);
-                recyclerViewMemories.setAdapter(adapterMemories);
-                recyclerViewMemories.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-                adapterMemories.notifyDataSetChanged();
             }
 
             @Override
@@ -207,19 +176,26 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 System.out.println("The read failed: " + databaseError.getCode());
             }
         });
-    }
 
-    //Data RecentView
+        refRecent.limitToFirst(5).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                dataListPhoto.clear();
+                for (DataSnapshot photoSnap: dataSnapshot.getChildren()) {
+                    RecentMemories photo = photoSnap.getValue(RecentMemories.class);
+                    dataListPhoto.add(photo);
+                }
+                adapter = new RecentAdapter(dataListPhoto,HomeActivity.this);
+                recyclerView.setAdapter(adapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+                adapter.notifyDataSetChanged();
+            }
 
-    private ArrayList<RecentMemories> addList(){
-        ArrayList<RecentMemories> list = new ArrayList<>();
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-        for(int i = 0; i< 10; i++){
-            RecentMemories recentMemories = new RecentMemories();
-            recentMemories.setBabyPhoto(fotoBayi[i]);
-            list.add(recentMemories);
-        }
-        return list;
+            }
+        });
     }
 
     private void eventListener() {
@@ -280,5 +256,4 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
- }
+}
