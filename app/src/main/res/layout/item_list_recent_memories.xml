@@ -10,6 +10,7 @@
             android:layout_width="@dimen/_53sdp"
             android:layout_height="@dimen/_53sdp"
             android:src="@drawable/bayi_2"
+            android:scaleType="centerCrop"
             android:layout_marginEnd="@dimen/_13sdp"
             android:layout_gravity="center"/>
 
