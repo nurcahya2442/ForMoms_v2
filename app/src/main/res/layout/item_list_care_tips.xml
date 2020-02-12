@@ -1,60 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
 
 
-        <RelativeLayout
-            android:layout_width="@dimen/_118sdp"
+    <RelativeLayout
+        android:layout_width="@dimen/_118sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_13sdp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvCareTips"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_13sdp">
+            app:cardCornerRadius="@dimen/_10sdp">
 
-
-        <ImageView
-            android:id="@+id/ivListFood"
-            android:layout_width="@dimen/_118sdp"
-            android:layout_height="@dimen/_93sdp"
-            android:src="@drawable/food"
-            android:scaleType="centerCrop"
-            android:layout_marginStart="@dimen/_1sdp"
-            android:layout_centerHorizontal="true"/>
+            <ImageView
+                android:id="@+id/ivListFood"
+                android:layout_width="@dimen/_118sdp"
+                android:layout_height="@dimen/_93sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="@dimen/_1sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/food" />
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/tvJudulListCare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Baby Food Recommendation"
-            android:textSize="@dimen/_12ssp"
-            android:layout_below="@id/ivListFood"
-            android:textColor="@android:color/black"
+            android:layout_below="@id/cvCareTips"
             android:layout_marginTop="@dimen/_5sdp"
-            android:fontFamily="@font/nunito_semibold"/>
+            android:fontFamily="@font/nunito_semibold"
+            android:text="Baby Food Recommendation"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_12ssp" />
 
 
-            <ImageView
-                android:id="@+id/ivPeopleImage"
-                android:layout_width="@dimen/_14sdp"
-                android:layout_height="@dimen/_14sdp"
-                android:src="@drawable/people"
-                android:layout_below="@id/tvJudulListCare"
-                android:layout_marginTop="@dimen/_5sdp"/>
+        <ImageView
+            android:id="@+id/ivPeopleImage"
+            android:layout_width="@dimen/_14sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:layout_below="@id/tvJudulListCare"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:src="@drawable/people" />
 
-            <TextView
-                android:id="@+id/tvPopleName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Angelica Witson"
-                android:layout_below="@id/tvJudulListCare"
-                android:textSize="@dimen/_8ssp"
-                android:layout_toRightOf="@id/ivPeopleImage"
-                android:layout_marginTop="@dimen/_7sdp"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:textColor="#9F9F9F"
-                android:fontFamily="@font/nunito_light"/>
+        <TextView
+            android:id="@+id/tvPopleName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvJudulListCare"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_toRightOf="@id/ivPeopleImage"
+            android:fontFamily="@font/nunito_light"
+            android:text="Angelica Witson"
+            android:textColor="#9F9F9F"
+            android:textSize="@dimen/_8ssp" />
 
 
-        </RelativeLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

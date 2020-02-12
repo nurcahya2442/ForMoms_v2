@@ -1,16 +1,20 @@
 package com.example.formoms_v2.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.formoms_v2.R;
 import com.example.formoms_v2.adapter.pojo.Album;
+import com.example.formoms_v2.adapter.pojo.AlbumPhoto;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,9 +24,14 @@ import java.util.Locale;
 public class MemoriesAdapter extends RecyclerView.Adapter<MemoriesAdapter.ViewHolder> {
 
     private ArrayList<Album> dataList;
+    private ArrayList<AlbumPhoto> dataPhoto;
 
-    public MemoriesAdapter(ArrayList<Album> dataList){
+    Context context;
+
+    public MemoriesAdapter(ArrayList<Album> dataList, ArrayList<AlbumPhoto> dataPhoto, Context context){
         this.dataList = dataList;
+        this.dataPhoto = dataPhoto;
+        this.context = context;
     }
 
     @NonNull
@@ -37,6 +46,18 @@ public class MemoriesAdapter extends RecyclerView.Adapter<MemoriesAdapter.ViewHo
     public void onBindViewHolder(@NonNull MemoriesAdapter.ViewHolder holder, int position) {
         holder.tvAlbumName.setText(dataList.get(position).getAlbumName());
         holder.tvCreatedAt.setText(calculateDate(position));
+        if(dataPhoto.size() >= 1) {
+            Glide.with(context).load(dataPhoto.get(position).getPhotoUrl()).into(holder.ivPic1);
+        }
+        if(dataPhoto.size() >= 2) {
+            Glide.with(context).load(dataPhoto.get(position+1).getPhotoUrl()).into(holder.ivPic2);
+        }
+        if(dataPhoto.size() >= 3) {
+            Glide.with(context).load(dataPhoto.get(position+2).getPhotoUrl()).into(holder.ivPic3);
+        }
+        if(dataPhoto.size() >= 4) {
+            Glide.with(context).load(dataPhoto.get(position+3).getPhotoUrl()).into(holder.ivPic4);
+        }
     }
 
     @Override
@@ -67,47 +88,51 @@ public class MemoriesAdapter extends RecyclerView.Adapter<MemoriesAdapter.ViewHo
     private String calculateDate(int position) {
         // Get Created At
         String sampleString = dataList.get(position).getCreatedAt();
-        String[] stringArray = sampleString.split("-");
-        int[] intArray = new int[stringArray.length];
-        for (int i = 0; i < stringArray.length; i++) {
-            String numberAsString = stringArray[i];
-            intArray[i] = Integer.parseInt(numberAsString);
-        }
 
-        // Get date now
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        String createdAt = sdf.format(new Date());
-        String[] stringArrayNow = createdAt.split("-");
-        int[] intArrayNow = new int[stringArrayNow.length];
-        for (int i = 0; i < stringArrayNow.length; i++) {
-            String numberAsString = stringArrayNow[i];
-            intArrayNow[i] = Integer.parseInt(numberAsString);
-        }
-
-        // Calculate
-        int year = intArrayNow[0] - intArray[0];
-        int month = intArrayNow[1] - intArray[1];
-        int day = intArrayNow[2] - intArray[2];
-
-        String tes = year +" - "+month+" - "+day;
-
-
-        // Logic
-        String createdDate = "";
-        if(year <= 0){
-            if(month <= 0){
-                if(day <= 0){
-                    createdDate = "Hari ini";
-                }else if(day > 0){
-                    createdDate = "Dibuat "+day+" hari yang lalu";
-                }
-            }else if(month > 0){
-                createdDate = "Dibuat "+month+" bulan yang lalu";
+        if(sampleString != null){
+            String[] stringArray = sampleString.split("-");
+            int[] intArray = new int[stringArray.length];
+            for (int i = 0; i < stringArray.length; i++) {
+                String numberAsString = stringArray[i];
+                intArray[i] = Integer.parseInt(numberAsString);
             }
-        }else if(year > 0){
-            createdDate = "Dibuat "+year+" tahun yang lalu";
-        }
 
-        return createdDate;
+            // Get date now
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            String createdAt = sdf.format(new Date());
+            String[] stringArrayNow = createdAt.split("-");
+            int[] intArrayNow = new int[stringArrayNow.length];
+            for (int i = 0; i < stringArrayNow.length; i++) {
+                String numberAsString = stringArrayNow[i];
+                intArrayNow[i] = Integer.parseInt(numberAsString);
+            }
+
+            // Calculate
+            int year = intArrayNow[0] - intArray[0];
+            int month = intArrayNow[1] - intArray[1];
+            int day = intArrayNow[2] - intArray[2];
+
+            String tes = year +" - "+month+" - "+day;
+
+
+            // Logic
+            String createdDate = "";
+            if(year <= 0){
+                if(month <= 0){
+                    if(day <= 0){
+                        createdDate = "Hari ini";
+                    }else if(day > 0){
+                        createdDate = "Dibuat "+day+" hari yang lalu";
+                    }
+                }else if(month > 0){
+                    createdDate = "Dibuat "+month+" bulan yang lalu";
+                }
+            }else if(year > 0){
+                createdDate = "Dibuat "+year+" tahun yang lalu";
+            }
+
+            return createdDate;
+        }
+        return null;
     }
 }

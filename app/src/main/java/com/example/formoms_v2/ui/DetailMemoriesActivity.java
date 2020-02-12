@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.formoms_v2.R;
 import com.example.formoms_v2.adapter.AlbumPhotoAdapter;
@@ -41,6 +42,8 @@ public class DetailMemoriesActivity extends AppCompatActivity {
     private String idAlbum, namaAlbum;
     private AlbumPhotoAdapter adapterPhoto;
     ImageView ivMenuBack;
+
+    public static final String MEMORIES_ID = "DETAIL_MEMORIES_ID";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -73,17 +76,17 @@ public class DetailMemoriesActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Toast.makeText(this, idAlbum, Toast.LENGTH_SHORT).show();
         refPhoto.orderByChild("albumId").equalTo(idAlbum).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                photoList.clear();
                 for (DataSnapshot photoSnap: dataSnapshot.getChildren()) {
                     AlbumPhoto photo = photoSnap.getValue(AlbumPhoto.class);
                     photoList.add(photo);
                 }
                 adapterPhoto = new AlbumPhotoAdapter(DetailMemoriesActivity.this, photoList);
                 rvPhoto.setAdapter(adapterPhoto);
-                rvPhoto.setLayoutManager(new GridLayoutManager(getApplicationContext(), 4));
+                rvPhoto.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL));
                 adapterPhoto.notifyDataSetChanged();
             }
 
@@ -109,6 +112,7 @@ public class DetailMemoriesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DetailMemoriesActivity.this, PreviewUploadActivity.class);
+                intent.putExtra(MEMORIES_ID, idAlbum);
                 startActivity(intent);
             }
         });

@@ -51,7 +51,7 @@ public class ManageAlbum extends AppCompatActivity {
         id = pindah.getStringExtra("id");
         act.setText(action);
 
-        if(!id.isEmpty()){
+        if(id != null){
             initUpdate(id);
             delete.setEnabled(true);
             delete.setOnClickListener(new View.OnClickListener() {

@@ -67,7 +67,7 @@ public class PreviewUploadActivity extends AppCompatActivity {
         eventListener();
 
         Intent intent = getIntent();
-        idAlbum = intent.getStringExtra(MemoriesActivity.MEMORIES_ID);
+        idAlbum = intent.getStringExtra(DetailMemoriesActivity.MEMORIES_ID);
 
         //Firebase Database
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -139,6 +139,7 @@ public class PreviewUploadActivity extends AppCompatActivity {
                             });
                             progressDialog.dismiss();
                             Toast.makeText(PreviewUploadActivity.this, "Data Berhasil Terupload", Toast.LENGTH_SHORT).show();
+                            finish();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
