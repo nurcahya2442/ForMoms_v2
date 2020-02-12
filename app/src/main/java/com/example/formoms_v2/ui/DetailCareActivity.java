@@ -31,8 +31,9 @@ public class DetailCareActivity extends AppCompatActivity {
          ivMenuBack.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-                Intent n = new Intent(DetailCareActivity.this,CareActivity.class);
-                startActivity(n);
+                 Intent n = new Intent(DetailCareActivity.this,CareActivity.class);
+                 startActivity(n);
+
              }
          });
          initComponent();

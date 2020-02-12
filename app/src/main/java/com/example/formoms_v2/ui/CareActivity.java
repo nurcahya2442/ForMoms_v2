@@ -30,7 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class CareActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class CareActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener {
 
     public static final String CARE_ID = "CARE_ID", CARE_TITLE = "CARE_TITLE", CARE_CONTENT = "CARE_CONTENT", CARE_AUTHOR = "CARE_AUTHOR";
 
@@ -44,7 +44,6 @@ public class CareActivity extends AppCompatActivity implements NavigationView.On
 
     private ImageView ivMenuBars;
     private NavigationView navigationSidebar;
-
     CareActivity context;
     private FirebaseAuth mAuth;
 
@@ -52,12 +51,13 @@ public class CareActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_care);
-        context= this;
+        context=this;
         // Get view by id
         recyclerViewCareTips = (RecyclerView) findViewById(R.id.rvCare);
         btnAdd = (FloatingActionButton) findViewById(R.id.fab_add);
 
         dataListTips = new ArrayList<>();
+
         ivMenuBars = (ImageView) findViewById(R.id.ivMenuBars);
 
         navigationSidebar = (NavigationView)findViewById(R.id.navigationBar);
@@ -76,6 +76,7 @@ public class CareActivity extends AppCompatActivity implements NavigationView.On
                 }
             }
         });
+
 
         eventListener();
 
