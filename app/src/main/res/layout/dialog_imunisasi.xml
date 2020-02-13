@@ -13,8 +13,7 @@
         android:layout_marginStart="@dimen/_16sdp"
         android:fontFamily="@font/nunito_extrabold"
         android:textSize="@dimen/_14ssp"
-        android:textColor="#4EBDDA"
-        android:layout_centerHorizontal="true"/>
+        android:textColor="#4EBDDA"/>
 
     <RelativeLayout
         android:id="@+id/relative2"
@@ -26,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_18sdp"
         android:background="#00FFFFFF"
-        android:text="Sudah Imunisasi"
+        android:text="Sudah"
         android:layout_marginTop="@dimen/_20sdp"
         android:textColor="#5BFF31"
         android:fontFamily="@font/nunito_semibold"
@@ -56,7 +55,7 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:background="#00FFFFFF"
             android:layout_toRightOf="@id/Delete"
-            android:text="Notifikasi"
+            android:text="Notif"
             android:textColor="#2986AC"
             android:fontFamily="@font/nunito_semibold"
             android:textSize="@dimen/_13ssp">

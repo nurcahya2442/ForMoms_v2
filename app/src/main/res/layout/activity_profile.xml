@@ -185,7 +185,8 @@
         android:layout_height="match_parent"
         android:background="#0ABDE3"
         app:headerLayout="@layout/item_header"
-        app:itemTextColor="@android:color/white" />
+        app:itemTextColor="@android:color/white"
+        app:itemIconTint="#80FFFFFF"/>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
