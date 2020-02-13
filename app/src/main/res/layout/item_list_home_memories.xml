@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="@dimen/_30sdp"
     android:paddingEnd="@dimen/_20sdp">
 
@@ -12,37 +13,65 @@
         android:columnCount="2"
         android:rowCount="2">
 
-        <ImageView
-            android:id="@+id/ivBayiHoliday1"
-            android:layout_width="@dimen/_60sdp"
-            android:layout_height="@dimen/_60sdp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_choose_picture" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_10sdp">
 
-        <ImageView
-            android:id="@+id/ivBayiHoliday2"
-            android:layout_width="@dimen/_60sdp"
-            android:layout_height="@dimen/_60sdp"
+            <ImageView
+                android:id="@+id/ivBayiHoliday1"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_choose_picture" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_5sdp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_choose_picture" />
+            app:cardCornerRadius="@dimen/_10sdp">
+
+            <ImageView
+                android:id="@+id/ivBayiHoliday2"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_choose_picture" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:cardCornerRadius="@dimen/_10sdp">
 
         <ImageView
             android:id="@+id/ivBayiHoliday3"
             android:layout_width="@dimen/_60sdp"
             android:layout_height="@dimen/_60sdp"
-            android:layout_marginTop="@dimen/_5sdp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_choose_picture" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:cardCornerRadius="@dimen/_10sdp">
 
         <ImageView
             android:id="@+id/ivBayiHoliday4"
             android:layout_width="@dimen/_60sdp"
             android:layout_height="@dimen/_60sdp"
-            android:layout_marginStart="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_5sdp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_choose_picture" />
+
+        </androidx.cardview.widget.CardView>
 
     </GridLayout>
 
