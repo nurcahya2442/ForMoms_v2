@@ -42,7 +42,7 @@ import java.util.Calendar;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    public static final String CARE_ID = "CARE_ID", CARE_TITLE = "CARE_TITLE", CARE_CONTENT = "CARE_CONTENT", CARE_AUTHOR = "CARE_AUTHOR";
+    public static final String CARE_ID = "CARE_ID", CARE_PIC = "CARE_PICS",CARE_TITLE = "CARE_TITLE", CARE_CONTENT = "CARE_CONTENT", CARE_AUTHOR = "CARE_AUTHOR";
 
     private ArrayList<AlbumPhoto> photoList;
 
@@ -235,6 +235,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 Care care = dataListTips.get(position);
                 Intent intent = new Intent(HomeActivity.this, DetailCareActivity.class);
                 intent.putExtra(CARE_ID, care.getIdCare());
+                intent.putExtra(CARE_PIC, care.getPicTips());
                 intent.putExtra(CARE_TITLE, care.getTitleTips());
                 intent.putExtra(CARE_CONTENT, care.getContent());
                 intent.putExtra(CARE_AUTHOR, care.getNamePeople());
